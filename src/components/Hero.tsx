@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="mx-auto max-w-4xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm font-medium">
             <Star className="h-4 w-4" />
-            <span>84 Curated Premium Products</span>
+            <span>108 Curated Premium Products</span>
           </div>
           
           <h1 className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
