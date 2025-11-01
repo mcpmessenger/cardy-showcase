@@ -10,7 +10,11 @@
     "description": "Industry-leading noise canceling, 30-hour battery, premium sound quality",
     "category": "electronics",
     "subcategory": "headphones",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B09XS7JWHH/image_01.jpg"
+    ],
+    "image_count": 1
   },
   {
     "name": "Apple AirPods Pro (2nd Generation) with MagSafe Case",
@@ -23,7 +27,13 @@
     "description": "Active Noise Cancellation, Spatial Audio, MagSafe charging",
     "category": "electronics",
     "subcategory": "headphones",
-    "badge": "Amazon's Choice"
+    "badge": "Amazon's Choice",
+    "local_images": [
+      "product_media/B0CHWRXH8B/image_01.jpg",
+      "product_media/B0CHWRXH8B/image_02.jpg",
+      "product_media/B0CHWRXH8B/image_03.jpg"
+    ],
+    "image_count": 3
   },
   {
     "name": "Bose QuietComfort Ultra Wireless Headphones",
@@ -36,7 +46,17 @@
     "description": "CustomTune technology, spatial audio, 24-hour battery life",
     "category": "electronics",
     "subcategory": "headphones",
-    "badge": "Premium Pick"
+    "badge": "Premium Pick",
+    "local_images": [
+      "product_media/B0CCZ26B5V/image_01.jpg",
+      "product_media/B0CCZ26B5V/image_02.jpg",
+      "product_media/B0CCZ26B5V/image_03.jpg"
+    ],
+    "image_count": 3,
+    "local_videos": [
+      "product_media/B0CCZ26B5V/video_01.mp4"
+    ],
+    "video_count": 1
   },
   {
     "name": "Anker Soundcore Life Q30 Hybrid Active Noise Cancelling",
@@ -49,7 +69,17 @@
     "description": "Hi-Res Audio, 40H playtime, memory foam ear cups",
     "category": "electronics",
     "subcategory": "headphones",
-    "badge": "Best Value"
+    "badge": "Best Value",
+    "local_images": [
+      "product_media/B08HMWZBXC/image_01.jpg",
+      "product_media/B08HMWZBXC/image_02.jpg",
+      "product_media/B08HMWZBXC/image_03.jpg"
+    ],
+    "image_count": 3,
+    "local_videos": [
+      "product_media/B08HMWZBXC/video_01.mp4"
+    ],
+    "video_count": 1
   },
   {
     "name": "JBL Tune 510BT Wireless On-Ear Headphones",
@@ -88,7 +118,17 @@
     "description": "Intelligent ANC, 360 audio, water resistant, wireless charging",
     "category": "electronics",
     "subcategory": "headphones",
-    "badge": "New Arrival"
+    "badge": "New Arrival",
+    "local_images": [
+      "product_media/B0B2SH4CN6/image_01.jpg",
+      "product_media/B0B2SH4CN6/image_02.jpg",
+      "product_media/B0B2SH4CN6/image_03.jpg"
+    ],
+    "image_count": 3,
+    "local_videos": [
+      "product_media/B0B2SH4CN6/video_01.mp4"
+    ],
+    "video_count": 1
   },
   {
     "name": "Sennheiser Momentum 4 Wireless Headphones",
@@ -114,7 +154,17 @@
     "description": "Best noise canceling earbuds, 8-hour battery, Hi-Res audio",
     "category": "electronics",
     "subcategory": "headphones",
-    "badge": "Top Rated"
+    "badge": "Top Rated",
+    "local_images": [
+      "product_media/B0C33XXS56/image_01.jpg",
+      "product_media/B0C33XXS56/image_02.jpg",
+      "product_media/B0C33XXS56/image_03.jpg"
+    ],
+    "image_count": 3,
+    "local_videos": [
+      "product_media/B0C33XXS56/video_01.mp4"
+    ],
+    "video_count": 1
   },
   {
     "name": "Jabra Elite 85h Wireless Noise-Canceling Headphones",
@@ -166,7 +216,17 @@
     "description": "Pressure cooker, slow cooker, rice cooker, steamer, sauté pan",
     "category": "home",
     "subcategory": "kitchen_appliances",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B01NBKTPTS/image_01.jpg",
+      "product_media/B01NBKTPTS/image_02.jpg",
+      "product_media/B01NBKTPTS/image_03.jpg"
+    ],
+    "image_count": 3,
+    "local_videos": [
+      "product_media/B01NBKTPTS/video_01.mp4"
+    ],
+    "video_count": 1
   },
   {
     "name": "Keurig K-Classic Coffee Maker K-Cup Pod Single-Serve",
@@ -192,7 +252,17 @@
     "description": "Brew strength control, self-clean function, gold-tone filter",
     "category": "home",
     "subcategory": "kitchen_appliances",
-    "badge": "Customer Favorite"
+    "badge": "Customer Favorite",
+    "local_images": [
+      "product_media/B00MVWGQX0/image_01.jpg",
+      "product_media/B00MVWGQX0/image_02.jpg",
+      "product_media/B00MVWGQX0/image_03.jpg"
+    ],
+    "image_count": 3,
+    "local_videos": [
+      "product_media/B00MVWGQX0/video_01.mp4"
+    ],
+    "video_count": 1
   },
   {
     "name": "KitchenAid Classic Plus Stand Mixer 4.5 Quart Empire Red",
@@ -244,7 +314,31 @@
     "description": "11-piece set, blends smoothies in 10 seconds, dishwasher safe",
     "category": "home",
     "subcategory": "blenders",
-    "badge": "Budget Pick"
+    "badge": "Budget Pick",
+    "local_videos": [
+      "product_media/B00EI7DPI0/video_01.mp4",
+      "product_media/B00EI7DPI0/video_02.mp4",
+      "product_media/B00EI7DPI0/video_03.mp4",
+      "product_media/B00EI7DPI0/video_04.mp4",
+      "product_media/B00EI7DPI0/video_05.mp4",
+      "product_media/B00EI7DPI0/video_06.mp4",
+      "product_media/B00EI7DPI0/video_07.mp4",
+      "product_media/B00EI7DPI0/video_08.mp4",
+      "product_media/B00EI7DPI0/video_09.mp4",
+      "product_media/B00EI7DPI0/video_10.mp4",
+      "product_media/B00EI7DPI0/video_11.mp4",
+      "product_media/B00EI7DPI0/video_13.mp4",
+      "product_media/B00EI7DPI0/video_14.mp4",
+      "product_media/B00EI7DPI0/video_16.mp4",
+      "product_media/B00EI7DPI0/video_17.mp4",
+      "product_media/B00EI7DPI0/video_18.mp4",
+      "product_media/B00EI7DPI0/video_19.mp4",
+      "product_media/B00EI7DPI0/video_20.mp4",
+      "product_media/B00EI7DPI0/video_21.mp4",
+      "product_media/B00EI7DPI0/video_22.mp4",
+      "product_media/B00EI7DPI0/video_26.mp4"
+    ],
+    "video_count": 21
   },
   {
     "name": "Oster Blender Pro 1200 with Glass Jar 6-Cup Capacity",
@@ -309,7 +403,20 @@
     "description": "Laser reveals invisible dust, powerful suction, LCD screen",
     "category": "home",
     "subcategory": "vacuums",
-    "badge": "Premium Pick"
+    "badge": "Premium Pick",
+    "local_images": [
+      "product_media/B09X5VJ8KM/image_01.jpg",
+      "product_media/B09X5VJ8KM/image_02.jpg",
+      "product_media/B09X5VJ8KM/image_03.jpg",
+      "product_media/B09X5VJ8KM/image_04.jpg",
+      "product_media/B09X5VJ8KM/image_05.jpg",
+      "product_media/B09X5VJ8KM/image_06.jpg"
+    ],
+    "image_count": 6,
+    "local_videos": [
+      "product_media/B09X5VJ8KM/video_01.mp4"
+    ],
+    "video_count": 1
   },
   {
     "name": "Shark Navigator Lift-Away Professional NV356E",
@@ -388,10 +495,76 @@
       "product_media/B079QYYGF1/video_11.mp4",
       "product_media/B079QYYGF1/video_12.mp4",
       "product_media/B079QYYGF1/video_13.mp4",
+      "product_media/B079QYYGF1/video_14.mp4",
       "product_media/B079QYYGF1/video_15.mp4",
-      "product_media/B079QYYGF1/video_16.mp4"
+      "product_media/B079QYYGF1/video_16.mp4",
+      "product_media/B079QYYGF1/video_17.mp4"
     ],
-    "video_count": 14
+    "video_count": 16,
+    "local_images": [
+      "product_media/B079QYYGF1/image_01.jpg",
+      "product_media/B079QYYGF1/image_02.jpg",
+      "product_media/B079QYYGF1/image_03.jpg",
+      "product_media/B079QYYGF1/image_04.jpg",
+      "product_media/B079QYYGF1/image_05.jpg",
+      "product_media/B079QYYGF1/image_06.jpg",
+      "product_media/B079QYYGF1/image_07.jpg",
+      "product_media/B079QYYGF1/image_08.jpg",
+      "product_media/B079QYYGF1/image_09.jpg",
+      "product_media/B079QYYGF1/image_10.jpg",
+      "product_media/B079QYYGF1/image_11.jpg",
+      "product_media/B079QYYGF1/image_12.jpg",
+      "product_media/B079QYYGF1/image_13.jpg",
+      "product_media/B079QYYGF1/image_14.jpg",
+      "product_media/B079QYYGF1/image_15.jpg",
+      "product_media/B079QYYGF1/image_16.jpg",
+      "product_media/B079QYYGF1/image_17.jpg",
+      "product_media/B079QYYGF1/image_18.jpg",
+      "product_media/B079QYYGF1/image_19.jpg",
+      "product_media/B079QYYGF1/image_20.jpg",
+      "product_media/B079QYYGF1/image_21.jpg",
+      "product_media/B079QYYGF1/image_22.jpg",
+      "product_media/B079QYYGF1/image_23.jpg",
+      "product_media/B079QYYGF1/image_24.jpg",
+      "product_media/B079QYYGF1/image_25.jpg",
+      "product_media/B079QYYGF1/image_26.jpg",
+      "product_media/B079QYYGF1/image_27.jpg",
+      "product_media/B079QYYGF1/image_28.jpg",
+      "product_media/B079QYYGF1/image_29.jpg",
+      "product_media/B079QYYGF1/image_30.jpg",
+      "product_media/B079QYYGF1/image_31.jpg",
+      "product_media/B079QYYGF1/image_32.jpg",
+      "product_media/B079QYYGF1/image_33.jpg",
+      "product_media/B079QYYGF1/image_34.jpg",
+      "product_media/B079QYYGF1/image_35.jpg",
+      "product_media/B079QYYGF1/image_36.jpg",
+      "product_media/B079QYYGF1/image_37.jpg",
+      "product_media/B079QYYGF1/image_38.jpg",
+      "product_media/B079QYYGF1/image_39.jpg",
+      "product_media/B079QYYGF1/image_40.jpg",
+      "product_media/B079QYYGF1/image_41.jpg",
+      "product_media/B079QYYGF1/image_42.jpg",
+      "product_media/B079QYYGF1/image_43.jpg",
+      "product_media/B079QYYGF1/image_44.jpg",
+      "product_media/B079QYYGF1/image_45.jpg",
+      "product_media/B079QYYGF1/image_46.jpg",
+      "product_media/B079QYYGF1/image_47.jpg",
+      "product_media/B079QYYGF1/image_48.jpg",
+      "product_media/B079QYYGF1/image_49.jpg",
+      "product_media/B079QYYGF1/image_50.jpg",
+      "product_media/B079QYYGF1/image_51.jpg",
+      "product_media/B079QYYGF1/image_52.jpg",
+      "product_media/B079QYYGF1/image_53.jpg",
+      "product_media/B079QYYGF1/image_54.jpg",
+      "product_media/B079QYYGF1/image_55.jpg",
+      "product_media/B079QYYGF1/image_56.jpg",
+      "product_media/B079QYYGF1/image_57.jpg",
+      "product_media/B079QYYGF1/image_58.jpg",
+      "product_media/B079QYYGF1/image_59.jpg",
+      "product_media/B079QYYGF1/image_60.jpg",
+      "product_media/B079QYYGF1/image_61.jpg"
+    ],
+    "image_count": 61
   },
   {
     "name": "Tineco Pure ONE S11 Smart Cordless Stick Vacuum",
@@ -420,6 +593,7 @@
     "badge": "Top Rated",
     "local_videos": [
       "product_media/B006LXOJC0/video_01.mp4",
+      "product_media/B006LXOJC0/video_02.mp4",
       "product_media/B006LXOJC0/video_03.mp4",
       "product_media/B006LXOJC0/video_04.mp4",
       "product_media/B006LXOJC0/video_05.mp4",
@@ -438,10 +612,43 @@
       "product_media/B006LXOJC0/video_18.mp4",
       "product_media/B006LXOJC0/video_19.mp4",
       "product_media/B006LXOJC0/video_20.mp4",
+      "product_media/B006LXOJC0/video_21.mp4",
       "product_media/B006LXOJC0/video_22.mp4",
-      "product_media/B006LXOJC0/video_23.mp4"
+      "product_media/B006LXOJC0/video_23.mp4",
+      "product_media/B006LXOJC0/video_25.mp4"
     ],
-    "video_count": 21
+    "video_count": 24,
+    "local_images": [
+      "product_media/B006LXOJC0/image_01.jpg",
+      "product_media/B006LXOJC0/image_02.jpg",
+      "product_media/B006LXOJC0/image_03.jpg",
+      "product_media/B006LXOJC0/image_04.jpg",
+      "product_media/B006LXOJC0/image_05.jpg",
+      "product_media/B006LXOJC0/image_06.jpg",
+      "product_media/B006LXOJC0/image_07.jpg",
+      "product_media/B006LXOJC0/image_08.jpg",
+      "product_media/B006LXOJC0/image_09.jpg",
+      "product_media/B006LXOJC0/image_10.jpg",
+      "product_media/B006LXOJC0/image_11.jpg",
+      "product_media/B006LXOJC0/image_12.jpg",
+      "product_media/B006LXOJC0/image_13.jpg",
+      "product_media/B006LXOJC0/image_14.jpg",
+      "product_media/B006LXOJC0/image_15.jpg",
+      "product_media/B006LXOJC0/image_16.jpg",
+      "product_media/B006LXOJC0/image_17.jpg",
+      "product_media/B006LXOJC0/image_18.jpg",
+      "product_media/B006LXOJC0/image_19.jpg",
+      "product_media/B006LXOJC0/image_20.jpg",
+      "product_media/B006LXOJC0/image_21.jpg",
+      "product_media/B006LXOJC0/image_22.jpg",
+      "product_media/B006LXOJC0/image_23.jpg",
+      "product_media/B006LXOJC0/image_24.jpg",
+      "product_media/B006LXOJC0/image_25.jpg",
+      "product_media/B006LXOJC0/image_26.jpg",
+      "product_media/B006LXOJC0/image_27.jpg",
+      "product_media/B006LXOJC0/image_28.jpg"
+    ],
+    "image_count": 28
   },
   {
     "name": "Hoover WindTunnel 3 Max Performance Upright Vacuum",
@@ -480,7 +687,13 @@
     "description": "Voice control smart home, crisp audio, Alexa built-in",
     "category": "electronics",
     "subcategory": "smart_home",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B09B8V1LZ3/image_01.jpg",
+      "product_media/B09B8V1LZ3/image_02.jpg",
+      "product_media/B09B8V1LZ3/image_03.jpg"
+    ],
+    "image_count": 3
   },
   {
     "name": "Amazon Echo Show 8 (3rd Gen) Smart Display",
@@ -493,7 +706,13 @@
     "description": "8-inch HD display, 13MP camera, spatial audio, smart home hub",
     "category": "electronics",
     "subcategory": "smart_home",
-    "badge": "Amazon's Choice"
+    "badge": "Amazon's Choice",
+    "local_images": [
+      "product_media/B0BLS3Y632/image_01.jpg",
+      "product_media/B0BLS3Y632/image_02.jpg",
+      "product_media/B0BLS3Y632/image_03.jpg"
+    ],
+    "image_count": 3
   },
   {
     "name": "Ring Video Doorbell Pro 2 with 3D Motion Detection",
@@ -539,6 +758,8 @@
       "product_media/B07QV9XB87/video_03.mp4",
       "product_media/B07QV9XB87/video_04.mp4",
       "product_media/B07QV9XB87/video_05.mp4",
+      "product_media/B07QV9XB87/video_06.mp4",
+      "product_media/B07QV9XB87/video_07.mp4",
       "product_media/B07QV9XB87/video_08.mp4",
       "product_media/B07QV9XB87/video_09.mp4",
       "product_media/B07QV9XB87/video_10.mp4",
@@ -551,7 +772,90 @@
       "product_media/B07QV9XB87/video_17.mp4",
       "product_media/B07QV9XB87/video_18.mp4"
     ],
-    "video_count": 16
+    "video_count": 18,
+    "local_images": [
+      "product_media/B07QV9XB87/image_01.jpg",
+      "product_media/B07QV9XB87/image_02.jpg",
+      "product_media/B07QV9XB87/image_03.jpg",
+      "product_media/B07QV9XB87/image_04.jpg",
+      "product_media/B07QV9XB87/image_05.jpg",
+      "product_media/B07QV9XB87/image_06.jpg",
+      "product_media/B07QV9XB87/image_07.jpg",
+      "product_media/B07QV9XB87/image_08.jpg",
+      "product_media/B07QV9XB87/image_09.jpg",
+      "product_media/B07QV9XB87/image_10.jpg",
+      "product_media/B07QV9XB87/image_11.jpg",
+      "product_media/B07QV9XB87/image_12.jpg",
+      "product_media/B07QV9XB87/image_13.jpg",
+      "product_media/B07QV9XB87/image_14.jpg",
+      "product_media/B07QV9XB87/image_15.jpg",
+      "product_media/B07QV9XB87/image_16.jpg",
+      "product_media/B07QV9XB87/image_17.jpg",
+      "product_media/B07QV9XB87/image_18.jpg",
+      "product_media/B07QV9XB87/image_19.jpg",
+      "product_media/B07QV9XB87/image_20.jpg",
+      "product_media/B07QV9XB87/image_21.jpg",
+      "product_media/B07QV9XB87/image_22.jpg",
+      "product_media/B07QV9XB87/image_23.jpg",
+      "product_media/B07QV9XB87/image_24.jpg",
+      "product_media/B07QV9XB87/image_25.jpg",
+      "product_media/B07QV9XB87/image_26.jpg",
+      "product_media/B07QV9XB87/image_27.jpg",
+      "product_media/B07QV9XB87/image_28.jpg",
+      "product_media/B07QV9XB87/image_29.jpg",
+      "product_media/B07QV9XB87/image_30.jpg",
+      "product_media/B07QV9XB87/image_31.jpg",
+      "product_media/B07QV9XB87/image_32.jpg",
+      "product_media/B07QV9XB87/image_33.jpg",
+      "product_media/B07QV9XB87/image_34.jpg",
+      "product_media/B07QV9XB87/image_35.jpg",
+      "product_media/B07QV9XB87/image_36.jpg",
+      "product_media/B07QV9XB87/image_37.jpg",
+      "product_media/B07QV9XB87/image_38.jpg",
+      "product_media/B07QV9XB87/image_39.jpg",
+      "product_media/B07QV9XB87/image_40.jpg",
+      "product_media/B07QV9XB87/image_41.jpg",
+      "product_media/B07QV9XB87/image_42.jpg",
+      "product_media/B07QV9XB87/image_43.jpg",
+      "product_media/B07QV9XB87/image_44.jpg",
+      "product_media/B07QV9XB87/image_45.jpg",
+      "product_media/B07QV9XB87/image_46.jpg",
+      "product_media/B07QV9XB87/image_47.jpg",
+      "product_media/B07QV9XB87/image_48.jpg",
+      "product_media/B07QV9XB87/image_49.jpg",
+      "product_media/B07QV9XB87/image_50.jpg",
+      "product_media/B07QV9XB87/image_51.jpg",
+      "product_media/B07QV9XB87/image_52.jpg",
+      "product_media/B07QV9XB87/image_53.jpg",
+      "product_media/B07QV9XB87/image_54.jpg",
+      "product_media/B07QV9XB87/image_55.jpg",
+      "product_media/B07QV9XB87/image_56.jpg",
+      "product_media/B07QV9XB87/image_57.jpg",
+      "product_media/B07QV9XB87/image_58.jpg",
+      "product_media/B07QV9XB87/image_59.jpg",
+      "product_media/B07QV9XB87/image_60.jpg",
+      "product_media/B07QV9XB87/image_61.jpg",
+      "product_media/B07QV9XB87/image_62.jpg",
+      "product_media/B07QV9XB87/image_63.jpg",
+      "product_media/B07QV9XB87/image_64.jpg",
+      "product_media/B07QV9XB87/image_65.jpg",
+      "product_media/B07QV9XB87/image_66.jpg",
+      "product_media/B07QV9XB87/image_67.jpg",
+      "product_media/B07QV9XB87/image_68.jpg",
+      "product_media/B07QV9XB87/image_69.jpg",
+      "product_media/B07QV9XB87/image_70.jpg",
+      "product_media/B07QV9XB87/image_71.jpg",
+      "product_media/B07QV9XB87/image_72.jpg",
+      "product_media/B07QV9XB87/image_73.jpg",
+      "product_media/B07QV9XB87/image_74.jpg",
+      "product_media/B07QV9XB87/image_75.jpg",
+      "product_media/B07QV9XB87/image_76.jpg",
+      "product_media/B07QV9XB87/image_77.jpg",
+      "product_media/B07QV9XB87/image_78.jpg",
+      "product_media/B07QV9XB87/image_79.jpg",
+      "product_media/B07QV9XB87/image_80.jpg"
+    ],
+    "image_count": 80
   },
   {
     "name": "TP-Link Kasa Smart WiFi Light Switch 3-Way Kit",
@@ -597,7 +901,67 @@
       "product_media/B08R59YH7W/video_16.mp4",
       "product_media/B08R59YH7W/video_17.mp4"
     ],
-    "video_count": 17
+    "video_count": 17,
+    "local_images": [
+      "product_media/B08R59YH7W/image_01.jpg",
+      "product_media/B08R59YH7W/image_02.jpg",
+      "product_media/B08R59YH7W/image_03.jpg",
+      "product_media/B08R59YH7W/image_04.jpg",
+      "product_media/B08R59YH7W/image_05.jpg",
+      "product_media/B08R59YH7W/image_06.jpg",
+      "product_media/B08R59YH7W/image_07.jpg",
+      "product_media/B08R59YH7W/image_08.jpg",
+      "product_media/B08R59YH7W/image_09.jpg",
+      "product_media/B08R59YH7W/image_10.jpg",
+      "product_media/B08R59YH7W/image_11.jpg",
+      "product_media/B08R59YH7W/image_12.jpg",
+      "product_media/B08R59YH7W/image_13.jpg",
+      "product_media/B08R59YH7W/image_14.jpg",
+      "product_media/B08R59YH7W/image_15.jpg",
+      "product_media/B08R59YH7W/image_16.jpg",
+      "product_media/B08R59YH7W/image_17.jpg",
+      "product_media/B08R59YH7W/image_18.jpg",
+      "product_media/B08R59YH7W/image_19.jpg",
+      "product_media/B08R59YH7W/image_20.jpg",
+      "product_media/B08R59YH7W/image_21.jpg",
+      "product_media/B08R59YH7W/image_22.jpg",
+      "product_media/B08R59YH7W/image_23.jpg",
+      "product_media/B08R59YH7W/image_24.jpg",
+      "product_media/B08R59YH7W/image_25.jpg",
+      "product_media/B08R59YH7W/image_26.jpg",
+      "product_media/B08R59YH7W/image_27.jpg",
+      "product_media/B08R59YH7W/image_28.jpg",
+      "product_media/B08R59YH7W/image_29.jpg",
+      "product_media/B08R59YH7W/image_30.jpg",
+      "product_media/B08R59YH7W/image_31.jpg",
+      "product_media/B08R59YH7W/image_32.jpg",
+      "product_media/B08R59YH7W/image_33.jpg",
+      "product_media/B08R59YH7W/image_34.jpg",
+      "product_media/B08R59YH7W/image_35.jpg",
+      "product_media/B08R59YH7W/image_36.jpg",
+      "product_media/B08R59YH7W/image_37.jpg",
+      "product_media/B08R59YH7W/image_38.jpg",
+      "product_media/B08R59YH7W/image_39.jpg",
+      "product_media/B08R59YH7W/image_40.jpg",
+      "product_media/B08R59YH7W/image_41.jpg",
+      "product_media/B08R59YH7W/image_42.jpg",
+      "product_media/B08R59YH7W/image_43.jpg",
+      "product_media/B08R59YH7W/image_44.jpg",
+      "product_media/B08R59YH7W/image_45.jpg",
+      "product_media/B08R59YH7W/image_46.jpg",
+      "product_media/B08R59YH7W/image_47.jpg",
+      "product_media/B08R59YH7W/image_48.jpg",
+      "product_media/B08R59YH7W/image_49.jpg",
+      "product_media/B08R59YH7W/image_50.jpg",
+      "product_media/B08R59YH7W/image_51.jpg",
+      "product_media/B08R59YH7W/image_52.jpg",
+      "product_media/B08R59YH7W/image_53.jpg",
+      "product_media/B08R59YH7W/image_54.jpg",
+      "product_media/B08R59YH7W/image_55.jpg",
+      "product_media/B08R59YH7W/image_56.jpg",
+      "product_media/B08R59YH7W/image_57.jpg"
+    ],
+    "image_count": 57
   },
   {
     "name": "ecobee SmartThermostat with Voice Control",
@@ -636,7 +1000,17 @@
     "description": "4K streaming, Wi-Fi 6, Alexa Voice Remote, Dolby Vision",
     "category": "electronics",
     "subcategory": "smart_home",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B08MQZXN1X/image_01.jpg",
+      "product_media/B08MQZXN1X/image_02.jpg",
+      "product_media/B08MQZXN1X/image_03.jpg",
+      "product_media/B08MQZXN1X/image_04.jpg",
+      "product_media/B08MQZXN1X/image_05.jpg",
+      "product_media/B08MQZXN1X/image_06.jpg",
+      "product_media/B08MQZXN1X/image_07.jpg"
+    ],
+    "image_count": 7
   },
   {
     "name": "Fitbit Charge 6 Fitness Tracker with Heart Rate and GPS",
@@ -798,16 +1172,32 @@
       "product_media/B01LSUQSB0/video_02.mp4",
       "product_media/B01LSUQSB0/video_03.mp4",
       "product_media/B01LSUQSB0/video_04.mp4",
+      "product_media/B01LSUQSB0/video_05.mp4",
       "product_media/B01LSUQSB0/video_06.mp4",
       "product_media/B01LSUQSB0/video_07.mp4",
       "product_media/B01LSUQSB0/video_08.mp4",
       "product_media/B01LSUQSB0/video_09.mp4",
       "product_media/B01LSUQSB0/video_10.mp4",
       "product_media/B01LSUQSB0/video_11.mp4",
+      "product_media/B01LSUQSB0/video_12.mp4",
       "product_media/B01LSUQSB0/video_13.mp4",
+      "product_media/B01LSUQSB0/video_14.mp4",
       "product_media/B01LSUQSB0/video_15.mp4"
     ],
-    "video_count": 12
+    "video_count": 15,
+    "local_images": [
+      "product_media/B01LSUQSB0/image_01.jpg",
+      "product_media/B01LSUQSB0/image_02.jpg",
+      "product_media/B01LSUQSB0/image_03.jpg",
+      "product_media/B01LSUQSB0/image_04.jpg",
+      "product_media/B01LSUQSB0/image_05.jpg",
+      "product_media/B01LSUQSB0/image_06.jpg",
+      "product_media/B01LSUQSB0/image_07.jpg",
+      "product_media/B01LSUQSB0/image_08.jpg",
+      "product_media/B01LSUQSB0/image_09.jpg",
+      "product_media/B01LSUQSB0/image_10.jpg"
+    ],
+    "image_count": 10
   },
   {
     "name": "Oral-B iO Series 9 Electric Toothbrush with iOSense",
@@ -841,9 +1231,10 @@
       "product_media/B00TTD9BRC/video_04.mp4",
       "product_media/B00TTD9BRC/video_05.mp4",
       "product_media/B00TTD9BRC/video_06.mp4",
+      "product_media/B00TTD9BRC/video_07.mp4",
       "product_media/B00TTD9BRC/video_08.mp4"
     ],
-    "video_count": 7
+    "video_count": 8
   },
   {
     "name": "Dyson Airwrap Multi-Styler Complete Long",
@@ -884,18 +1275,22 @@
     "subcategory": "skincare",
     "badge": "Cult Favorite",
     "local_videos": [
+      "product_media/B01M4MCUAF/video_01.mp4",
       "product_media/B01M4MCUAF/video_02.mp4",
+      "product_media/B01M4MCUAF/video_03.mp4",
       "product_media/B01M4MCUAF/video_04.mp4",
       "product_media/B01M4MCUAF/video_06.mp4",
       "product_media/B01M4MCUAF/video_08.mp4",
       "product_media/B01M4MCUAF/video_09.mp4",
       "product_media/B01M4MCUAF/video_10.mp4",
       "product_media/B01M4MCUAF/video_11.mp4",
+      "product_media/B01M4MCUAF/video_12.mp4",
+      "product_media/B01M4MCUAF/video_13.mp4",
       "product_media/B01M4MCUAF/video_14.mp4",
       "product_media/B01M4MCUAF/video_15.mp4",
       "product_media/B01M4MCUAF/video_16.mp4"
     ],
-    "video_count": 10
+    "video_count": 14
   },
   {
     "name": "Waterpik Aquarius Water Flosser Professional",
@@ -911,6 +1306,7 @@
     "badge": "Top Rated",
     "local_videos": [
       "product_media/B000GLRREU/video_01.mp4",
+      "product_media/B000GLRREU/video_02.mp4",
       "product_media/B000GLRREU/video_03.mp4",
       "product_media/B000GLRREU/video_04.mp4",
       "product_media/B000GLRREU/video_05.mp4",
@@ -925,7 +1321,7 @@
       "product_media/B000GLRREU/video_15.mp4",
       "product_media/B000GLRREU/video_16.mp4"
     ],
-    "video_count": 14
+    "video_count": 15
   },
   {
     "name": "Neutrogena Makeup Remover Cleansing Face Wipes 25 Count",
@@ -990,7 +1386,33 @@
     "description": "100% UV protection, iconic design, crystal lenses",
     "category": "fashion",
     "subcategory": "accessories",
-    "badge": "Classic Icon"
+    "badge": "Classic Icon",
+    "local_images": [
+      "product_media/B001GNBJNW/image_01.jpg",
+      "product_media/B001GNBJNW/image_02.jpg",
+      "product_media/B001GNBJNW/image_03.jpg",
+      "product_media/B001GNBJNW/image_04.jpg",
+      "product_media/B001GNBJNW/image_05.jpg",
+      "product_media/B001GNBJNW/image_06.jpg",
+      "product_media/B001GNBJNW/image_07.jpg",
+      "product_media/B001GNBJNW/image_08.jpg",
+      "product_media/B001GNBJNW/image_09.jpg",
+      "product_media/B001GNBJNW/image_10.jpg"
+    ],
+    "image_count": 10,
+    "local_videos": [
+      "product_media/B001GNBJNW/video_01.mp4",
+      "product_media/B001GNBJNW/video_05.mp4",
+      "product_media/B001GNBJNW/video_06.mp4",
+      "product_media/B001GNBJNW/video_07.mp4",
+      "product_media/B001GNBJNW/video_08.mp4",
+      "product_media/B001GNBJNW/video_09.mp4",
+      "product_media/B001GNBJNW/video_10.mp4",
+      "product_media/B001GNBJNW/video_12.mp4",
+      "product_media/B001GNBJNW/video_13.mp4",
+      "product_media/B001GNBJNW/video_15.mp4"
+    ],
+    "video_count": 10
   },
   {
     "name": "Levi's Men's 501 Original Fit Jeans",
@@ -1094,7 +1516,44 @@
     "description": "#1 New York Times bestseller, transform your life with tiny changes",
     "category": "books",
     "subcategory": "self_help",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B07D23CFGR/image_01.jpg",
+      "product_media/B07D23CFGR/image_02.jpg",
+      "product_media/B07D23CFGR/image_03.jpg",
+      "product_media/B07D23CFGR/image_04.jpg",
+      "product_media/B07D23CFGR/image_05.jpg",
+      "product_media/B07D23CFGR/image_06.jpg",
+      "product_media/B07D23CFGR/image_07.jpg",
+      "product_media/B07D23CFGR/image_08.jpg",
+      "product_media/B07D23CFGR/image_09.jpg",
+      "product_media/B07D23CFGR/image_10.jpg",
+      "product_media/B07D23CFGR/image_11.jpg",
+      "product_media/B07D23CFGR/image_12.jpg",
+      "product_media/B07D23CFGR/image_13.jpg",
+      "product_media/B07D23CFGR/image_14.jpg",
+      "product_media/B07D23CFGR/image_15.jpg",
+      "product_media/B07D23CFGR/image_16.jpg",
+      "product_media/B07D23CFGR/image_17.jpg",
+      "product_media/B07D23CFGR/image_18.jpg",
+      "product_media/B07D23CFGR/image_19.jpg",
+      "product_media/B07D23CFGR/image_20.jpg",
+      "product_media/B07D23CFGR/image_21.jpg",
+      "product_media/B07D23CFGR/image_22.jpg"
+    ],
+    "image_count": 22,
+    "local_videos": [
+      "product_media/B07D23CFGR/video_01.mp4",
+      "product_media/B07D23CFGR/video_03.mp4",
+      "product_media/B07D23CFGR/video_04.mp4",
+      "product_media/B07D23CFGR/video_05.mp4",
+      "product_media/B07D23CFGR/video_06.mp4",
+      "product_media/B07D23CFGR/video_08.mp4",
+      "product_media/B07D23CFGR/video_11.mp4",
+      "product_media/B07D23CFGR/video_12.mp4",
+      "product_media/B07D23CFGR/video_14.mp4"
+    ],
+    "video_count": 9
   },
   {
     "name": "The 48 Laws of Power by Robert Greene",
@@ -1107,7 +1566,44 @@
     "description": "International bestseller, 3 million copies sold, timeless wisdom",
     "category": "books",
     "subcategory": "business",
-    "badge": "Classic"
+    "badge": "Classic",
+    "local_images": [
+      "product_media/B0024CEZR6/image_01.jpg",
+      "product_media/B0024CEZR6/image_02.jpg",
+      "product_media/B0024CEZR6/image_03.jpg",
+      "product_media/B0024CEZR6/image_04.jpg",
+      "product_media/B0024CEZR6/image_05.jpg",
+      "product_media/B0024CEZR6/image_06.jpg",
+      "product_media/B0024CEZR6/image_07.jpg",
+      "product_media/B0024CEZR6/image_08.jpg",
+      "product_media/B0024CEZR6/image_09.jpg",
+      "product_media/B0024CEZR6/image_10.jpg",
+      "product_media/B0024CEZR6/image_11.jpg",
+      "product_media/B0024CEZR6/image_12.jpg",
+      "product_media/B0024CEZR6/image_13.jpg",
+      "product_media/B0024CEZR6/image_14.jpg",
+      "product_media/B0024CEZR6/image_15.jpg",
+      "product_media/B0024CEZR6/image_16.jpg",
+      "product_media/B0024CEZR6/image_17.jpg",
+      "product_media/B0024CEZR6/image_18.jpg",
+      "product_media/B0024CEZR6/image_19.jpg",
+      "product_media/B0024CEZR6/image_20.jpg",
+      "product_media/B0024CEZR6/image_21.jpg",
+      "product_media/B0024CEZR6/image_22.jpg"
+    ],
+    "image_count": 22,
+    "local_videos": [
+      "product_media/B0024CEZR6/video_01.mp4",
+      "product_media/B0024CEZR6/video_04.mp4",
+      "product_media/B0024CEZR6/video_05.mp4",
+      "product_media/B0024CEZR6/video_06.mp4",
+      "product_media/B0024CEZR6/video_07.mp4",
+      "product_media/B0024CEZR6/video_10.mp4",
+      "product_media/B0024CEZR6/video_11.mp4",
+      "product_media/B0024CEZR6/video_13.mp4",
+      "product_media/B0024CEZR6/video_14.mp4"
+    ],
+    "video_count": 9
   },
   {
     "name": "Kindle Paperwhite (16 GB) 6.8-inch Display Waterproof",
@@ -1120,7 +1616,20 @@
     "description": "Glare-free display, adjustable warm light, 10-week battery",
     "category": "electronics",
     "subcategory": "ereaders",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B08KTZ8249/image_01.jpg",
+      "product_media/B08KTZ8249/image_02.jpg",
+      "product_media/B08KTZ8249/image_03.jpg",
+      "product_media/B08KTZ8249/image_04.jpg",
+      "product_media/B08KTZ8249/image_05.jpg",
+      "product_media/B08KTZ8249/image_06.jpg",
+      "product_media/B08KTZ8249/image_07.jpg",
+      "product_media/B08KTZ8249/image_08.jpg",
+      "product_media/B08KTZ8249/image_09.jpg",
+      "product_media/B08KTZ8249/image_10.jpg"
+    ],
+    "image_count": 10
   },
   {
     "name": "The Psychology of Money by Morgan Housel",
@@ -1133,7 +1642,42 @@
     "description": "Timeless lessons on wealth and happiness, Wall Street Journal bestseller",
     "category": "books",
     "subcategory": "finance",
-    "badge": "Top Rated"
+    "badge": "Top Rated",
+    "local_images": [
+      "product_media/B084HJSJJ2/image_01.jpg",
+      "product_media/B084HJSJJ2/image_02.jpg",
+      "product_media/B084HJSJJ2/image_03.jpg",
+      "product_media/B084HJSJJ2/image_04.jpg",
+      "product_media/B084HJSJJ2/image_05.jpg",
+      "product_media/B084HJSJJ2/image_06.jpg",
+      "product_media/B084HJSJJ2/image_07.jpg",
+      "product_media/B084HJSJJ2/image_08.jpg",
+      "product_media/B084HJSJJ2/image_09.jpg",
+      "product_media/B084HJSJJ2/image_10.jpg",
+      "product_media/B084HJSJJ2/image_11.jpg",
+      "product_media/B084HJSJJ2/image_12.jpg",
+      "product_media/B084HJSJJ2/image_13.jpg",
+      "product_media/B084HJSJJ2/image_14.jpg",
+      "product_media/B084HJSJJ2/image_15.jpg",
+      "product_media/B084HJSJJ2/image_16.jpg",
+      "product_media/B084HJSJJ2/image_17.jpg",
+      "product_media/B084HJSJJ2/image_18.jpg",
+      "product_media/B084HJSJJ2/image_19.jpg"
+    ],
+    "image_count": 19,
+    "local_videos": [
+      "product_media/B084HJSJJ2/video_01.mp4",
+      "product_media/B084HJSJJ2/video_02.mp4",
+      "product_media/B084HJSJJ2/video_04.mp4",
+      "product_media/B084HJSJJ2/video_05.mp4",
+      "product_media/B084HJSJJ2/video_08.mp4",
+      "product_media/B084HJSJJ2/video_09.mp4",
+      "product_media/B084HJSJJ2/video_10.mp4",
+      "product_media/B084HJSJJ2/video_13.mp4",
+      "product_media/B084HJSJJ2/video_15.mp4",
+      "product_media/B084HJSJJ2/video_16.mp4"
+    ],
+    "video_count": 10
   },
   {
     "name": "Rich Dad Poor Dad by Robert T. Kiyosaki",
@@ -1146,7 +1690,43 @@
     "description": "What the rich teach their kids about money, #1 personal finance book",
     "category": "books",
     "subcategory": "finance",
-    "badge": "Classic"
+    "badge": "Classic",
+    "local_images": [
+      "product_media/B07C7M8SX9/image_01.jpg",
+      "product_media/B07C7M8SX9/image_02.jpg",
+      "product_media/B07C7M8SX9/image_03.jpg",
+      "product_media/B07C7M8SX9/image_04.jpg",
+      "product_media/B07C7M8SX9/image_05.jpg",
+      "product_media/B07C7M8SX9/image_06.jpg",
+      "product_media/B07C7M8SX9/image_07.jpg",
+      "product_media/B07C7M8SX9/image_08.jpg",
+      "product_media/B07C7M8SX9/image_09.jpg",
+      "product_media/B07C7M8SX9/image_10.jpg",
+      "product_media/B07C7M8SX9/image_11.jpg",
+      "product_media/B07C7M8SX9/image_12.jpg",
+      "product_media/B07C7M8SX9/image_13.jpg",
+      "product_media/B07C7M8SX9/image_14.jpg",
+      "product_media/B07C7M8SX9/image_15.jpg",
+      "product_media/B07C7M8SX9/image_16.jpg",
+      "product_media/B07C7M8SX9/image_17.jpg",
+      "product_media/B07C7M8SX9/image_18.jpg",
+      "product_media/B07C7M8SX9/image_19.jpg",
+      "product_media/B07C7M8SX9/image_20.jpg"
+    ],
+    "image_count": 20,
+    "local_videos": [
+      "product_media/B07C7M8SX9/video_01.mp4",
+      "product_media/B07C7M8SX9/video_02.mp4",
+      "product_media/B07C7M8SX9/video_03.mp4",
+      "product_media/B07C7M8SX9/video_05.mp4",
+      "product_media/B07C7M8SX9/video_07.mp4",
+      "product_media/B07C7M8SX9/video_08.mp4",
+      "product_media/B07C7M8SX9/video_09.mp4",
+      "product_media/B07C7M8SX9/video_10.mp4",
+      "product_media/B07C7M8SX9/video_12.mp4",
+      "product_media/B07C7M8SX9/video_14.mp4"
+    ],
+    "video_count": 10
   },
   {
     "name": "LEGO Star Wars Millennium Falcon Building Kit",
@@ -1172,7 +1752,24 @@
     "description": "7-inch OLED screen, enhanced audio, 64GB internal storage",
     "category": "electronics",
     "subcategory": "gaming",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B098RKWHHZ/image_01.jpg"
+    ],
+    "image_count": 1,
+    "local_videos": [
+      "product_media/B098RKWHHZ/video_01.mp4",
+      "product_media/B098RKWHHZ/video_05.mp4",
+      "product_media/B098RKWHHZ/video_06.mp4",
+      "product_media/B098RKWHHZ/video_07.mp4",
+      "product_media/B098RKWHHZ/video_08.mp4",
+      "product_media/B098RKWHHZ/video_09.mp4",
+      "product_media/B098RKWHHZ/video_12.mp4",
+      "product_media/B098RKWHHZ/video_13.mp4",
+      "product_media/B098RKWHHZ/video_15.mp4",
+      "product_media/B098RKWHHZ/video_16.mp4"
+    ],
+    "video_count": 10
   },
   {
     "name": "PlayStation 5 Console",
@@ -1185,7 +1782,21 @@
     "description": "Ultra-high speed SSD, ray tracing, 4K gaming, DualSense controller",
     "category": "electronics",
     "subcategory": "gaming",
-    "badge": "Premium Pick"
+    "badge": "Premium Pick",
+    "local_videos": [
+      "product_media/B0CL5KNB9M/video_01.mp4",
+      "product_media/B0CL5KNB9M/video_02.mp4",
+      "product_media/B0CL5KNB9M/video_05.mp4",
+      "product_media/B0CL5KNB9M/video_09.mp4",
+      "product_media/B0CL5KNB9M/video_10.mp4",
+      "product_media/B0CL5KNB9M/video_11.mp4",
+      "product_media/B0CL5KNB9M/video_12.mp4",
+      "product_media/B0CL5KNB9M/video_13.mp4",
+      "product_media/B0CL5KNB9M/video_15.mp4",
+      "product_media/B0CL5KNB9M/video_16.mp4",
+      "product_media/B0CL5KNB9M/video_17.mp4"
+    ],
+    "video_count": 11
   },
   {
     "name": "Monopoly Classic Board Game",
@@ -1224,7 +1835,20 @@
     "description": "10.9-inch Liquid Retina display, A14 Bionic chip, Touch ID",
     "category": "electronics",
     "subcategory": "tablets",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B0BJLXMVMV/image_01.jpg",
+      "product_media/B0BJLXMVMV/image_02.jpg",
+      "product_media/B0BJLXMVMV/image_03.jpg",
+      "product_media/B0BJLXMVMV/image_04.jpg",
+      "product_media/B0BJLXMVMV/image_05.jpg",
+      "product_media/B0BJLXMVMV/image_06.jpg",
+      "product_media/B0BJLXMVMV/image_07.jpg",
+      "product_media/B0BJLXMVMV/image_08.jpg",
+      "product_media/B0BJLXMVMV/image_09.jpg",
+      "product_media/B0BJLXMVMV/image_10.jpg"
+    ],
+    "image_count": 10
   },
   {
     "name": "Logitech MX Master 3S Wireless Performance Mouse",
@@ -1237,7 +1861,31 @@
     "description": "8K DPI sensor, quiet clicks, ergonomic design, multi-device",
     "category": "electronics",
     "subcategory": "computer_accessories",
-    "badge": "Editor's Choice"
+    "badge": "Editor's Choice",
+    "local_images": [
+      "product_media/B09HM94VDS/image_01.jpg",
+      "product_media/B09HM94VDS/image_02.jpg",
+      "product_media/B09HM94VDS/image_03.jpg",
+      "product_media/B09HM94VDS/image_04.jpg",
+      "product_media/B09HM94VDS/image_05.jpg",
+      "product_media/B09HM94VDS/image_06.jpg",
+      "product_media/B09HM94VDS/image_07.jpg",
+      "product_media/B09HM94VDS/image_08.jpg",
+      "product_media/B09HM94VDS/image_09.jpg",
+      "product_media/B09HM94VDS/image_10.jpg"
+    ],
+    "image_count": 10,
+    "local_videos": [
+      "product_media/B09HM94VDS/video_01.mp4",
+      "product_media/B09HM94VDS/video_02.mp4",
+      "product_media/B09HM94VDS/video_03.mp4",
+      "product_media/B09HM94VDS/video_05.mp4",
+      "product_media/B09HM94VDS/video_06.mp4",
+      "product_media/B09HM94VDS/video_07.mp4",
+      "product_media/B09HM94VDS/video_09.mp4",
+      "product_media/B09HM94VDS/video_11.mp4"
+    ],
+    "video_count": 8
   },
   {
     "name": "Apple AirTag 4 Pack - Precision Finding with iPhone",
@@ -1263,7 +1911,31 @@
     "description": "Ultra high capacity, charges iPhone 8 times, dual USB ports",
     "category": "electronics",
     "subcategory": "accessories",
-    "badge": "Amazon's Choice"
+    "badge": "Amazon's Choice",
+    "local_images": [
+      "product_media/B00X5RV14Y/image_01.jpg",
+      "product_media/B00X5RV14Y/image_02.jpg",
+      "product_media/B00X5RV14Y/image_03.jpg",
+      "product_media/B00X5RV14Y/image_04.jpg",
+      "product_media/B00X5RV14Y/image_05.jpg",
+      "product_media/B00X5RV14Y/image_06.jpg",
+      "product_media/B00X5RV14Y/image_07.jpg",
+      "product_media/B00X5RV14Y/image_08.jpg"
+    ],
+    "image_count": 8,
+    "local_videos": [
+      "product_media/B00X5RV14Y/video_01.mp4",
+      "product_media/B00X5RV14Y/video_02.mp4",
+      "product_media/B00X5RV14Y/video_03.mp4",
+      "product_media/B00X5RV14Y/video_04.mp4",
+      "product_media/B00X5RV14Y/video_05.mp4",
+      "product_media/B00X5RV14Y/video_06.mp4",
+      "product_media/B00X5RV14Y/video_07.mp4",
+      "product_media/B00X5RV14Y/video_08.mp4",
+      "product_media/B00X5RV14Y/video_09.mp4",
+      "product_media/B00X5RV14Y/video_10.mp4"
+    ],
+    "video_count": 10
   },
   {
     "name": "Samsung T7 Portable SSD 1TB External Solid State Drive",
@@ -1276,7 +1948,34 @@
     "description": "Up to 1050MB/s transfer speed, USB-C, password protection",
     "category": "electronics",
     "subcategory": "computer_accessories",
-    "badge": "Top Rated"
+    "badge": "Top Rated",
+    "local_images": [
+      "product_media/B0874XN4D8/image_01.jpg",
+      "product_media/B0874XN4D8/image_02.jpg",
+      "product_media/B0874XN4D8/image_03.jpg",
+      "product_media/B0874XN4D8/image_04.jpg",
+      "product_media/B0874XN4D8/image_05.jpg",
+      "product_media/B0874XN4D8/image_06.jpg",
+      "product_media/B0874XN4D8/image_07.jpg",
+      "product_media/B0874XN4D8/image_08.jpg",
+      "product_media/B0874XN4D8/image_09.jpg",
+      "product_media/B0874XN4D8/image_10.jpg"
+    ],
+    "image_count": 10,
+    "local_videos": [
+      "product_media/B0874XN4D8/video_01.mp4",
+      "product_media/B0874XN4D8/video_03.mp4",
+      "product_media/B0874XN4D8/video_04.mp4",
+      "product_media/B0874XN4D8/video_05.mp4",
+      "product_media/B0874XN4D8/video_06.mp4",
+      "product_media/B0874XN4D8/video_07.mp4",
+      "product_media/B0874XN4D8/video_09.mp4",
+      "product_media/B0874XN4D8/video_13.mp4",
+      "product_media/B0874XN4D8/video_14.mp4",
+      "product_media/B0874XN4D8/video_16.mp4",
+      "product_media/B0874XN4D8/video_17.mp4"
+    ],
+    "video_count": 11
   },
   {
     "name": "Blue Yeti USB Microphone for Streaming Gaming Podcasting",
@@ -1289,7 +1988,42 @@
     "description": "Professional sound quality, 4 pickup patterns, mute button",
     "category": "electronics",
     "subcategory": "computer_accessories",
-    "badge": "Streamer's Choice"
+    "badge": "Streamer's Choice",
+    "local_images": [
+      "product_media/B00N1YPXW2/image_01.jpg",
+      "product_media/B00N1YPXW2/image_02.jpg",
+      "product_media/B00N1YPXW2/image_03.jpg",
+      "product_media/B00N1YPXW2/image_04.jpg",
+      "product_media/B00N1YPXW2/image_05.jpg",
+      "product_media/B00N1YPXW2/image_06.jpg",
+      "product_media/B00N1YPXW2/image_07.jpg",
+      "product_media/B00N1YPXW2/image_08.jpg",
+      "product_media/B00N1YPXW2/image_09.jpg",
+      "product_media/B00N1YPXW2/image_10.jpg"
+    ],
+    "image_count": 10,
+    "local_videos": [
+      "product_media/B00N1YPXW2/video_01.mp4",
+      "product_media/B00N1YPXW2/video_02.mp4",
+      "product_media/B00N1YPXW2/video_03.mp4",
+      "product_media/B00N1YPXW2/video_04.mp4",
+      "product_media/B00N1YPXW2/video_05.mp4",
+      "product_media/B00N1YPXW2/video_06.mp4",
+      "product_media/B00N1YPXW2/video_07.mp4",
+      "product_media/B00N1YPXW2/video_08.mp4",
+      "product_media/B00N1YPXW2/video_09.mp4",
+      "product_media/B00N1YPXW2/video_12.mp4",
+      "product_media/B00N1YPXW2/video_13.mp4",
+      "product_media/B00N1YPXW2/video_14.mp4",
+      "product_media/B00N1YPXW2/video_16.mp4",
+      "product_media/B00N1YPXW2/video_17.mp4",
+      "product_media/B00N1YPXW2/video_19.mp4",
+      "product_media/B00N1YPXW2/video_20.mp4",
+      "product_media/B00N1YPXW2/video_21.mp4",
+      "product_media/B00N1YPXW2/video_22.mp4",
+      "product_media/B00N1YPXW2/video_23.mp4"
+    ],
+    "video_count": 19
   },
   {
     "name": "LG 27-Inch UltraGear QHD Gaming Monitor 165Hz",
@@ -1341,7 +2075,30 @@
     "description": "Ergonomic height, heat ventilation, stable, fits 10-17 inch laptops",
     "category": "office",
     "subcategory": "desk_accessories",
-    "badge": "Amazon's Choice"
+    "badge": "Amazon's Choice",
+    "local_images": [
+      "product_media/B07DWM9WNM/image_01.jpg",
+      "product_media/B07DWM9WNM/image_02.jpg",
+      "product_media/B07DWM9WNM/image_03.jpg",
+      "product_media/B07DWM9WNM/image_04.jpg",
+      "product_media/B07DWM9WNM/image_05.jpg",
+      "product_media/B07DWM9WNM/image_06.jpg",
+      "product_media/B07DWM9WNM/image_07.jpg"
+    ],
+    "image_count": 7,
+    "local_videos": [
+      "product_media/B07DWM9WNM/video_01.mp4",
+      "product_media/B07DWM9WNM/video_03.mp4",
+      "product_media/B07DWM9WNM/video_04.mp4",
+      "product_media/B07DWM9WNM/video_06.mp4",
+      "product_media/B07DWM9WNM/video_07.mp4",
+      "product_media/B07DWM9WNM/video_09.mp4",
+      "product_media/B07DWM9WNM/video_11.mp4",
+      "product_media/B07DWM9WNM/video_13.mp4",
+      "product_media/B07DWM9WNM/video_14.mp4",
+      "product_media/B07DWM9WNM/video_16.mp4"
+    ],
+    "video_count": 10
   },
   {
     "name": "NOCO Boost Plus GB40 1000A UltraSafe Jump Starter",
@@ -1354,7 +2111,20 @@
     "description": "Jump starts up to 6.0L gas, safety features, USB charging",
     "category": "automotive",
     "subcategory": "tools",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B015TKUPIC/image_01.jpg",
+      "product_media/B015TKUPIC/image_02.jpg",
+      "product_media/B015TKUPIC/image_03.jpg",
+      "product_media/B015TKUPIC/image_04.jpg",
+      "product_media/B015TKUPIC/image_05.jpg",
+      "product_media/B015TKUPIC/image_06.jpg"
+    ],
+    "image_count": 6,
+    "local_videos": [
+      "product_media/B015TKUPIC/video_01.mp4"
+    ],
+    "video_count": 1
   },
   {
     "name": "Garmin DriveSmart 65 GPS Navigator with Alexa 6.95 Display",
@@ -1419,7 +2189,61 @@
     "description": "Removes 99.97% pollutants, oscillates 70 degrees, bladeless fan",
     "category": "home",
     "subcategory": "air_quality",
-    "badge": "Best Seller"
+    "badge": "Best Seller",
+    "local_images": [
+      "product_media/B01D8DAYII/image_01.jpg",
+      "product_media/B01D8DAYII/image_02.jpg",
+      "product_media/B01D8DAYII/image_03.jpg",
+      "product_media/B01D8DAYII/image_04.jpg",
+      "product_media/B01D8DAYII/image_05.jpg",
+      "product_media/B01D8DAYII/image_06.jpg",
+      "product_media/B01D8DAYII/image_07.jpg",
+      "product_media/B01D8DAYII/image_08.jpg",
+      "product_media/B01D8DAYII/image_09.jpg",
+      "product_media/B01D8DAYII/image_10.jpg",
+      "product_media/B01D8DAYII/image_11.jpg",
+      "product_media/B01D8DAYII/image_12.jpg",
+      "product_media/B01D8DAYII/image_13.jpg",
+      "product_media/B01D8DAYII/image_14.jpg",
+      "product_media/B01D8DAYII/image_15.jpg",
+      "product_media/B01D8DAYII/image_16.jpg",
+      "product_media/B01D8DAYII/image_17.jpg",
+      "product_media/B01D8DAYII/image_18.jpg",
+      "product_media/B01D8DAYII/image_19.jpg",
+      "product_media/B01D8DAYII/image_20.jpg",
+      "product_media/B01D8DAYII/image_21.jpg",
+      "product_media/B01D8DAYII/image_22.jpg",
+      "product_media/B01D8DAYII/image_23.jpg",
+      "product_media/B01D8DAYII/image_24.jpg",
+      "product_media/B01D8DAYII/image_25.jpg",
+      "product_media/B01D8DAYII/image_26.jpg",
+      "product_media/B01D8DAYII/image_27.jpg",
+      "product_media/B01D8DAYII/image_28.jpg",
+      "product_media/B01D8DAYII/image_29.jpg",
+      "product_media/B01D8DAYII/image_30.jpg"
+    ],
+    "image_count": 30,
+    "local_videos": [
+      "product_media/B01D8DAYII/video_01.mp4",
+      "product_media/B01D8DAYII/video_03.mp4",
+      "product_media/B01D8DAYII/video_04.mp4",
+      "product_media/B01D8DAYII/video_05.mp4",
+      "product_media/B01D8DAYII/video_07.mp4",
+      "product_media/B01D8DAYII/video_08.mp4",
+      "product_media/B01D8DAYII/video_09.mp4",
+      "product_media/B01D8DAYII/video_10.mp4",
+      "product_media/B01D8DAYII/video_11.mp4",
+      "product_media/B01D8DAYII/video_12.mp4",
+      "product_media/B01D8DAYII/video_13.mp4",
+      "product_media/B01D8DAYII/video_14.mp4",
+      "product_media/B01D8DAYII/video_16.mp4",
+      "product_media/B01D8DAYII/video_17.mp4",
+      "product_media/B01D8DAYII/video_18.mp4",
+      "product_media/B01D8DAYII/video_19.mp4",
+      "product_media/B01D8DAYII/video_20.mp4",
+      "product_media/B01D8DAYII/video_22.mp4"
+    ],
+    "video_count": 18
   },
   {
     "name": "Beckham Hotel Collection Bed Pillows Queen Size 2 Pack",
@@ -1460,6 +2284,16 @@
     "subcategory": "air_quality",
     "badge": "Top Rated",
     "local_images": [
+      "product_media/B07VVK39F7/image_01.jpg",
+      "product_media/B07VVK39F7/image_02.jpg",
+      "product_media/B07VVK39F7/image_03.jpg",
+      "product_media/B07VVK39F7/image_04.jpg",
+      "product_media/B07VVK39F7/image_05.jpg",
+      "product_media/B07VVK39F7/image_06.jpg",
+      "product_media/B07VVK39F7/image_07.jpg",
+      "product_media/B07VVK39F7/image_08.jpg",
+      "product_media/B07VVK39F7/image_09.jpg",
+      "product_media/B07VVK39F7/image_10.jpg",
       "product_media/B07VVK39F7/image_100.jpg",
       "product_media/B07VVK39F7/image_101.jpg",
       "product_media/B07VVK39F7/image_102.jpg",
@@ -1470,6 +2304,7 @@
       "product_media/B07VVK39F7/image_107.jpg",
       "product_media/B07VVK39F7/image_108.jpg",
       "product_media/B07VVK39F7/image_109.jpg",
+      "product_media/B07VVK39F7/image_11.jpg",
       "product_media/B07VVK39F7/image_110.jpg",
       "product_media/B07VVK39F7/image_111.jpg",
       "product_media/B07VVK39F7/image_112.jpg",
@@ -1480,6 +2315,7 @@
       "product_media/B07VVK39F7/image_117.jpg",
       "product_media/B07VVK39F7/image_118.jpg",
       "product_media/B07VVK39F7/image_119.jpg",
+      "product_media/B07VVK39F7/image_12.jpg",
       "product_media/B07VVK39F7/image_120.jpg",
       "product_media/B07VVK39F7/image_121.jpg",
       "product_media/B07VVK39F7/image_122.jpg",
@@ -1490,6 +2326,7 @@
       "product_media/B07VVK39F7/image_127.jpg",
       "product_media/B07VVK39F7/image_128.jpg",
       "product_media/B07VVK39F7/image_129.jpg",
+      "product_media/B07VVK39F7/image_13.jpg",
       "product_media/B07VVK39F7/image_130.jpg",
       "product_media/B07VVK39F7/image_131.jpg",
       "product_media/B07VVK39F7/image_132.jpg",
@@ -1500,12 +2337,32 @@
       "product_media/B07VVK39F7/image_137.jpg",
       "product_media/B07VVK39F7/image_138.jpg",
       "product_media/B07VVK39F7/image_139.jpg",
+      "product_media/B07VVK39F7/image_14.jpg",
       "product_media/B07VVK39F7/image_140.jpg",
       "product_media/B07VVK39F7/image_141.jpg",
       "product_media/B07VVK39F7/image_142.jpg",
       "product_media/B07VVK39F7/image_143.jpg",
       "product_media/B07VVK39F7/image_144.jpg",
       "product_media/B07VVK39F7/image_145.jpg",
+      "product_media/B07VVK39F7/image_15.jpg",
+      "product_media/B07VVK39F7/image_16.jpg",
+      "product_media/B07VVK39F7/image_17.jpg",
+      "product_media/B07VVK39F7/image_18.jpg",
+      "product_media/B07VVK39F7/image_19.jpg",
+      "product_media/B07VVK39F7/image_20.jpg",
+      "product_media/B07VVK39F7/image_21.jpg",
+      "product_media/B07VVK39F7/image_22.jpg",
+      "product_media/B07VVK39F7/image_23.jpg",
+      "product_media/B07VVK39F7/image_24.jpg",
+      "product_media/B07VVK39F7/image_25.jpg",
+      "product_media/B07VVK39F7/image_26.jpg",
+      "product_media/B07VVK39F7/image_27.jpg",
+      "product_media/B07VVK39F7/image_28.jpg",
+      "product_media/B07VVK39F7/image_29.jpg",
+      "product_media/B07VVK39F7/image_30.jpg",
+      "product_media/B07VVK39F7/image_31.jpg",
+      "product_media/B07VVK39F7/image_32.jpg",
+      "product_media/B07VVK39F7/image_33.jpg",
       "product_media/B07VVK39F7/image_64.jpg",
       "product_media/B07VVK39F7/image_65.jpg",
       "product_media/B07VVK39F7/image_66.jpg",
@@ -1542,23 +2399,32 @@
       "product_media/B07VVK39F7/image_98.jpg",
       "product_media/B07VVK39F7/image_99.jpg"
     ],
-    "image_count": 81,
+    "image_count": 114,
     "local_videos": [
       "product_media/B07VVK39F7/video_01.mp4",
       "product_media/B07VVK39F7/video_02.mp4",
       "product_media/B07VVK39F7/video_03.mp4",
       "product_media/B07VVK39F7/video_04.mp4",
       "product_media/B07VVK39F7/video_05.mp4",
+      "product_media/B07VVK39F7/video_06.mp4",
       "product_media/B07VVK39F7/video_08.mp4",
       "product_media/B07VVK39F7/video_09.mp4",
       "product_media/B07VVK39F7/video_10.mp4",
       "product_media/B07VVK39F7/video_11.mp4",
       "product_media/B07VVK39F7/video_12.mp4",
       "product_media/B07VVK39F7/video_13.mp4",
+      "product_media/B07VVK39F7/video_15.mp4",
       "product_media/B07VVK39F7/video_16.mp4",
-      "product_media/B07VVK39F7/video_17.mp4"
+      "product_media/B07VVK39F7/video_17.mp4",
+      "product_media/B07VVK39F7/video_18.mp4",
+      "product_media/B07VVK39F7/video_19.mp4",
+      "product_media/B07VVK39F7/video_21.mp4",
+      "product_media/B07VVK39F7/video_23.mp4",
+      "product_media/B07VVK39F7/video_24.mp4",
+      "product_media/B07VVK39F7/video_25.mp4",
+      "product_media/B07VVK39F7/video_26.mp4"
     ],
-    "video_count": 13
+    "video_count": 22
   },
   {
     "name": "Weighted Blanket 15 lbs Queen Size 60x80 Grey",
@@ -1678,6 +2544,7 @@
     ],
     "image_count": 76,
     "local_videos": [
+      "product_media/B00CPGMUXW/video_01.mp4",
       "product_media/B00CPGMUXW/video_02.mp4",
       "product_media/B00CPGMUXW/video_03.mp4",
       "product_media/B00CPGMUXW/video_05.mp4",
@@ -1687,7 +2554,7 @@
       "product_media/B00CPGMUXW/video_12.mp4",
       "product_media/B00CPGMUXW/video_13.mp4"
     ],
-    "video_count": 8
+    "video_count": 9
   },
   {
     "name": "Coleman Sundome Camping Tent 4-Person Dome Tent",
