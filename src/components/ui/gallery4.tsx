@@ -107,10 +107,10 @@ const Gallery4 = ({
             {items.map((item) => (
               <CarouselItem
                 key={item.id}
-                className="pl-4 sm:pl-6 md:pl-8 basis-auto sm:basis-[280px] md:basis-[320px] lg:basis-[360px]"
+                className="pl-4 sm:pl-6 md:pl-8 basis-[85vw] sm:basis-[280px] md:basis-[320px] lg:basis-[360px]"
               >
-                <a href={item.href} className="group rounded-xl block" target="_blank" rel="noopener noreferrer">
-                  <div className="group relative h-full min-h-[20rem] sm:min-h-[24rem] md:min-h-[27rem] max-w-full overflow-hidden rounded-xl border md:aspect-[5/4] lg:aspect-[16/9]">
+                <a href={item.href} className="group rounded-xl block w-full" target="_blank" rel="noopener noreferrer">
+                  <div className="group relative w-full min-h-[20rem] sm:min-h-[24rem] md:min-h-[27rem] overflow-hidden rounded-xl border md:aspect-[5/4] lg:aspect-[16/9]">
                     {item.product ? (
                       <div className="absolute inset-0 h-full w-full">
                         <ProductImageCarousel
