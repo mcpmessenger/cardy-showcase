@@ -14,6 +14,24 @@ export function getFeaturedProducts(limit: number = 8): Product[] {
 }
 
 /**
+ * Get products with photos for showcasing in carousel
+ * Returns products that have local_images OR valid image_url (not placeholder)
+ */
+export function getProductsWithPhotos(): Product[] {
+  return products.filter((product) => {
+    // Has local images
+    if (product.local_images && product.local_images.length > 0) {
+      return true;
+    }
+    // Has a valid image URL
+    if (product.image_url && !product.image_url.includes('placeholder')) {
+      return true;
+    }
+    return false;
+  });
+}
+
+/**
  * Get products by category
  */
 export function getProductsByCategory(category: string): Product[] {
@@ -81,13 +99,20 @@ export function productToGalleryItem(product: Product, index?: number): {
   description: string;
   href: string;
   image: string;
+  product?: Product;
 } {
+  // Use local image if available, otherwise fallback to image_url
+  const imageUrl = product.local_images && product.local_images.length > 0
+    ? `/${product.local_images[0]}` // Images served from public folder
+    : product.image_url;
+    
   return {
     id: product.asin || `product-${index}`,
     title: product.name,
     description: product.description,
     href: product.url,
-    image: product.image_url,
+    image: imageUrl,
+    product: product, // Include full product for image carousel
   };
 }
 

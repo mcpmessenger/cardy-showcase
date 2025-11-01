@@ -10,5 +10,9 @@ export interface Product {
   category: string;
   subcategory: string;
   badge?: string;
+  local_images?: string[];
+  local_videos?: string[];
+  image_count?: number;
+  video_count?: number;
 }
 

@@ -4,6 +4,30 @@
  */
 
 /**
+ * Get the best available image URL for a product
+ * Prioritizes local images over remote URLs
+ */
+export function getProductImageUrl(product: {
+  image_url?: string;
+  local_images?: string[];
+}): string {
+  // Prioritize local images if available
+  if (product.local_images && product.local_images.length > 0) {
+    // Return the first local image, with path adjusted for web serving
+    const localPath = product.local_images[0];
+    // If path starts with "product_media/", serve from public folder
+    // In development/production, images should be in public/product_media/
+    if (localPath.startsWith('product_media/')) {
+      return `/${localPath}`;
+    }
+    return localPath.startsWith('/') ? localPath : `/${localPath}`;
+  }
+  
+  // Fallback to remote image URL
+  return product.image_url || '/placeholder.svg';
+}
+
+/**
  * Get optimized Amazon image URL with specific size
  * Amazon image URLs support different sizes via the SL parameter
  */
@@ -21,30 +45,10 @@ export function getAmazonImageUrl(
 /**
  * Get image URL with CDN optimization (if using a proxy like Cloudinary)
  */
-export function getOptimizedImageUrl(
-  originalUrl: string,
-  options?: {
-    width?: number;
-    height?: number;
-    quality?: number;
-    format?: 'auto' | 'webp' | 'jpeg' | 'png';
-  }
-): string {
-  const { width = 800, height, quality = 85, format = 'auto' } = options || {};
-
-  // Example: Using Cloudinary or Imgix as proxy
-  // Replace with your actual CDN/proxy service
-  const useCDN = false; // Set to true when you have a CDN setup
-
-  if (useCDN) {
-    // Cloudinary example
-    // return `https://res.cloudinary.com/YOUR_CLOUD/image/fetch/w_${width},q_${quality},f_${format}/${encodeURIComponent(originalUrl)}`;
-    
-    // Imgix example
-    // return `https://your-domain.imgix.net/${encodeURIComponent(originalUrl)}?w=${width}&q=${quality}&auto=format`;
-  }
-
-  return originalUrl;
+export function getOptimizedImageUrl(url: string, width?: number, height?: number): string {
+  // If using a CDN, add transformation parameters here
+  // Example for Cloudinary: return `https://res.cloudinary.com/demo/image/fetch/w_${width},h_${height}/${url}`;
+  return url;
 }
 
 /**
@@ -53,67 +57,24 @@ export function getOptimizedImageUrl(
 export async function validateImageUrl(url: string): Promise<boolean> {
   try {
     const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
-    // With no-cors, we can't check status, so we'll just return true
-    // For proper validation, you'd need a backend endpoint
-    return true;
-  } catch (error) {
+    return true; // If no error, assume accessible
+  } catch {
     return false;
   }
 }
 
 /**
- * Get fallback/placeholder image URL
+ * Get placeholder image based on category
  */
 export function getPlaceholderImage(category?: string): string {
-  // Use a placeholder service like Unsplash, Placeholder.com, or your own
-  const placeholderServices = {
-    placeholder: 'https://via.placeholder.com/800x800/cccccc/666666?text=Product+Image',
-    placeholderSvg: '/placeholder.svg', // Your local placeholder
-    unsplash: category 
-      ? `https://source.unsplash.com/800x800/?${encodeURIComponent(category)}`
-      : 'https://source.unsplash.com/800x800/?product',
-  };
-
-  return placeholderServices.placeholderSvg; // Use local placeholder
+  // Return category-specific placeholder or generic one
+  return '/placeholder.svg';
 }
 
 /**
  * Extract ASIN from Amazon URL
  */
 export function extractASIN(url: string): string | null {
-  // Extract ASIN from various Amazon URL formats
-  const patterns = [
-    /\/dp\/([A-Z0-9]{10})/,           // /dp/B09XS7JWHH
-    /\/gp\/product\/([A-Z0-9]{10})/,   // /gp/product/B09XS7JWHH
-    /\/product\/([A-Z0-9]{10})/,       // /product/B09XS7JWHH
-  ];
-
-  for (const pattern of patterns) {
-    const match = url.match(pattern);
-    if (match) return match[1];
-  }
-
-  return null;
+  const match = url.match(/\/dp\/([A-Z0-9]{10})/);
+  return match ? match[1] : null;
 }
-
-/**
- * Get multiple image sizes for responsive images
- */
-export function getResponsiveImageUrls(
-  originalUrl: string,
-  sizes: number[] = [400, 800, 1200]
-): { src: string; srcSet: string; sizes: string } {
-  const srcSet = sizes
-    .map((size) => {
-      const url = getOptimizedImageUrl(originalUrl, { width: size });
-      return `${url} ${size}w`;
-    })
-    .join(', ');
-
-  return {
-    src: getOptimizedImageUrl(originalUrl, { width: sizes[0] }),
-    srcSet,
-    sizes: '(max-width: 400px) 400px, (max-width: 800px) 800px, 1200px',
-  };
-}
-
