@@ -8,7 +8,7 @@ import { useMemo } from "react";
 
 const Index = () => {
   const featuredProducts = useMemo(() => {
-    const featured = getProductsWithPhotos();
+    const featured = getProductsWithPhotos().slice(0, 40); // Limit to 40 for best mobile experience
     return featured.map((product, index) => productToGalleryItem(product, index));
   }, []);
 

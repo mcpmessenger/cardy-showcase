@@ -15,19 +15,13 @@ export function getFeaturedProducts(limit: number = 8): Product[] {
 
 /**
  * Get products with photos for showcasing in carousel
- * Returns products that have local_images OR valid image_url (not placeholder)
+ * Returns ONLY products with local_images to avoid mobile display issues
+ * As we add more local images, the carousel will expand automatically
  */
 export function getProductsWithPhotos(): Product[] {
   return products.filter((product) => {
-    // Has local images
-    if (product.local_images && product.local_images.length > 0) {
-      return true;
-    }
-    // Has a valid image URL
-    if (product.image_url && !product.image_url.includes('placeholder')) {
-      return true;
-    }
-    return false;
+    // Only return products with local images
+    return product.local_images && product.local_images.length > 0;
   });
 }
 
