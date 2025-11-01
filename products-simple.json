@@ -2778,5 +2778,83 @@
     "category": "garden",
     "subcategory": "supplies",
     "badge": "Gardener's Choice"
+  },
+  {
+    "name": "Amazon Basics 2-Ply Toilet Paper, 350 Sheets Per Roll, 30 Count",
+    "price": 25.21,
+    "asin": "B095CN96JS",
+    "url": "https://www.amazon.com/dp/B095CN96JS?tag=aipro00-20",
+    "image_url": "https://m.media-amazon.com/images/I/81K4QW5Vh+L._AC_SL1500_.jpg",
+    "rating": 4.5,
+    "reviews": 45230,
+    "description": "30 Rolls with 350 2-ply sheets per roll for a total of 10,500 sheets. Great value with 6.3 times more sheets than a regular roll. Septic safe and FSC-certified toilet paper suitable for well-maintained sewer and septic systems.",
+    "category": "home",
+    "subcategory": "household_supplies",
+    "badge": "Best Value"
+  },
+  {
+    "name": "Amazon Basics 2-Ply Flex-Sheets Paper Towels, 150 Sheets Per Roll, 12 Rolls",
+    "price": 22.86,
+    "asin": "B09BWFX1L6",
+    "url": "https://www.amazon.com/dp/B09BWFX1L6?tag=aipro00-20",
+    "image_url": "https://m.media-amazon.com/images/I/81X5J+0Qq4L._AC_SL1500_.jpg",
+    "rating": 4.5,
+    "reviews": 45230,
+    "description": "12 rolls with 150 2-ply sheets per roll for a total of 1,800 sheets. Flex-sheets allow you to select the size needed for any task, reducing waste. Less lint, making them suitable for cleaning hard surfaces like mirrors and countertops. FSC-certified.",
+    "category": "home",
+    "subcategory": "household_supplies",
+    "badge": "Best Value"
+  },
+  {
+    "name": "Amazon Basics Concentrated Liquid Laundry Detergent, Clean Linen, 110 loads, 82.5 Fl Oz",
+    "price": 9.21,
+    "asin": "B09CLPVL3H",
+    "url": "https://www.amazon.com/dp/B09CLPVL3H?tag=aipro00-20",
+    "image_url": "https://m.media-amazon.com/images/I/81L4j-4gNXL._AC_SL1500_.jpg",
+    "rating": 4.5,
+    "reviews": 3200,
+    "description": "Super concentrated liquid laundry detergent provides 2x more loads per bottle compared to standard detergents. Clean linen scent leaves clothes smelling fresh. Suitable for both standard and high efficiency (HE) machines. Phosphate free.",
+    "category": "home",
+    "subcategory": "household_supplies",
+    "badge": "Amazon's Choice"
+  },
+  {
+    "name": "Almay Skintone Matching Foundation, Smart Shade Face Makeup with SPF 15",
+    "price": 11.28,
+    "asin": "B00GXUQBPY",
+    "url": "https://www.amazon.com/dp/B00GXUQBPY?tag=aipro00-20",
+    "image_url": "https://m.media-amazon.com/images/I/81VkMm+N3LL._AC_SL1500_.jpg",
+    "rating": 4.3,
+    "reviews": 2500,
+    "description": "Skintone matching foundation that adjusts to your unique skin tone. Contains SPF 15 for sun protection. Hypoallergenic and oil-free formula, dermatologist-tested for sensitive skin.",
+    "category": "beauty",
+    "subcategory": "makeup",
+    "badge": "Best Seller"
+  },
+  {
+    "name": "FRP MB40 4-Stroke Mini Bike, 40CC Kids Mini Dirt Bike",
+    "price": 299.99,
+    "asin": "B0DF2BY9VD",
+    "url": "https://www.amazon.com/dp/B0DF2BY9VD?tag=aipro00-20",
+    "image_url": "https://m.media-amazon.com/images/I/81Q4X5P9h5L._AC_SL1500_.jpg",
+    "rating": 4.2,
+    "reviews": 1100,
+    "description": "40CC 4-stroke engine requires no oil mixing. Easy assembly with touch protection for safety. Maximum speed of 18 mph and supports riders up to 165 lbs. Suitable for kids and beginners.",
+    "category": "automotive",
+    "subcategory": "motorcycles",
+    "badge": "Top Rated"
+  },
+  {
+    "name": "Amazon Fire TV Stick 4K streaming device",
+    "price": 49.99,
+    "asin": "B079QHML21",
+    "url": "https://www.amazon.com/dp/B079QHML21?tag=aipro00-20",
+    "image_url": "https://m.media-amazon.com/images/I/51CgKGfMelL._AC_SL1000_.jpg",
+    "rating": 4.7,
+    "reviews": 185432,
+    "description": "Powerful streaming device with access to thousands of channels, apps, and Alexa skills. Supports 4K Ultra HD, Dolby Vision, HDR, and HDR10+. Includes Alexa Voice Remote.",
+    "category": "electronics",
+    "subcategory": "streaming_devices",
+    "badge": "Best Seller"
   }
 ]
