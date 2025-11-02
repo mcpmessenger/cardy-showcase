@@ -216,12 +216,17 @@ const Privacy = () => {
 
           <hr className="my-8" />
 
-          <p className="text-sm text-muted-foreground">
-            <strong>Effective Date</strong>: November 2, 2025
-          </p>
-          <p>
-            By using tubbyAI, you acknowledge that you have read and understood this Privacy Policy.
-          </p>
+          <div className="mb-4 text-center text-sm text-muted-foreground">
+            <p className="mb-2">
+              <strong>Effective Date</strong>: November 2, 2025
+            </p>
+            <p className="mb-4">
+              By using tubbyAI, you acknowledge that you have read and understood this Privacy Policy.
+            </p>
+            <p>
+              <Link to="/terms" className="text-primary hover:underline">View Terms of Service</Link>
+            </p>
+          </div>
         </article>
       </main>
       <Footer />

@@ -139,7 +139,7 @@ const Terms = () => {
           <section className="mb-8">
             <h2 className="mb-3 text-2xl font-semibold border-b pb-2">8. Privacy</h2>
             <p className="mb-4">
-              Your use of tubbyAI is governed by our <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>. By using the Skill, you consent to our data practices.
+              Your use of tubbyAI is governed by our <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>. By using the Skill, you consent to our data practices.
             </p>
           </section>
 
