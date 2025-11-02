@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Star, Search, Filter, X } from "lucide-react";
+import Footer from "@/components/Footer";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -188,6 +189,7 @@ const Products = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

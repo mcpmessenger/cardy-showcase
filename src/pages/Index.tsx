@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 import { Gallery4 } from "@/components/ui/gallery4";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -45,6 +46,7 @@ const Index = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };
