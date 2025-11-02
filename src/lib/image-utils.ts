@@ -68,7 +68,7 @@ export async function validateImageUrl(url: string): Promise<boolean> {
  */
 export function getPlaceholderImage(category?: string): string {
   // Return category-specific placeholder or generic one
-  return '/placeholder.svg';
+  return '/placeholder.png';
 }
 
 /**

@@ -119,7 +119,7 @@ export function ProductImageCarousel({
             imageUrl = img;
           } else {
             // Fallback: treat as relative path or use image_url
-            imageUrl = product.image_url || '/placeholder.svg';
+            imageUrl = product.image_url || '/placeholder.png';
           }
           
           return (
@@ -132,7 +132,7 @@ export function ProductImageCarousel({
                 onError={(e) => {
                   // Prevent infinite loop by checking if already on fallback
                   const currentSrc = e.currentTarget.src;
-                  if (currentSrc.includes('placeholder.svg')) {
+                  if (currentSrc.includes('placeholder.png')) {
                     return; // Already on placeholder, don't change again
                   }
                   
