@@ -32,7 +32,7 @@ const Hero = () => {
             <img 
               src={bannerPath} 
               alt="tubbyAI" 
-              className="w-full max-w-4xl"
+              className="w-1/2 max-w-2xl"
               style={{ imageRendering: "auto" }}
             />
           </div>
