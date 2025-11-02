@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import Footer from "@/components/Footer";
 
