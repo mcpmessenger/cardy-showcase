@@ -1,9 +1,11 @@
 import { useState, useMemo } from "react";
-import { ShoppingBag, Star, Search, Filter, X } from "lucide-react";
+import { Star, Search, Filter, X } from "lucide-react";
+import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { VoiceSearchButton } from "@/components/ui/voice-search-button";
 import { products, getCategoriesWithCounts, getProductsByCategory, searchProducts } from "@/lib/products";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ProductImageCarousel } from "@/components/ui/product-image-carousel";
@@ -41,11 +43,8 @@ const Products = () => {
       {/* Header */}
       <header className="sticky top-0 z-50 border-b glass-strong">
         <div className="container mx-auto flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6">
-          <a href="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg border bg-background">
-              <ShoppingBag className="h-6 w-6" />
-            </div>
-            <span className="text-xl font-bold">AIPro Store</span>
+          <a href="/">
+            <BrandLogo withSubtitle />
           </a>
           <ThemeToggle />
         </div>
@@ -73,7 +72,11 @@ const Products = () => {
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 pr-12"
+                />
+                <VoiceSearchButton 
+                  onTranscription={(text) => setSearchQuery(text)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2"
                 />
               </div>
               

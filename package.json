@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "media:update": "python scripts/update_media_links.py",
     "media:analyze": "python scripts/analyze_media.py",
+    "media:audit": "python scripts/audit_images.py",
     "media:download": "python scripts/download_missing_images.py"
   },
   "dependencies": {

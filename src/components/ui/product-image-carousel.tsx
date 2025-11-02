@@ -19,9 +19,12 @@ export function ProductImageCarousel({
   autoPlay = false,
 }: ProductImageCarouselProps) {
   // Get images: prefer local_images, fallback to image_url if no local images
-  const images = product.local_images && product.local_images.length > 0 
+  // Limit to first 20 images max to prevent performance issues
+  const MAX_IMAGES = 20;
+  const allImages = product.local_images && product.local_images.length > 0 
     ? product.local_images 
     : (product.image_url ? [product.image_url] : []);
+  const images = allImages.slice(0, MAX_IMAGES);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
@@ -120,15 +123,21 @@ export function ProductImageCarousel({
           }
           
           return (
-            <div key={index} className="min-w-full flex-shrink-0">
+            <div key={`${img}-${index}`} className="min-w-full flex-shrink-0">
               <img
                 src={imageUrl}
                 alt={`${product.name} - Image ${index + 1}`}
                 className="h-full w-full object-cover"
                 loading={index === 0 ? "eager" : "lazy"}
                 onError={(e) => {
+                  // Prevent infinite loop by checking if already on fallback
+                  const currentSrc = e.currentTarget.src;
+                  if (currentSrc.includes('placeholder.svg')) {
+                    return; // Already on placeholder, don't change again
+                  }
+                  
                   // Try fallback to image_url if not already using it
-                  if (imageUrl !== product.image_url && product.image_url) {
+                  if (imageUrl !== product.image_url && product.image_url && !currentSrc.includes(product.image_url)) {
                     e.currentTarget.src = product.image_url;
                   } else {
                     e.currentTarget.src = '/placeholder.svg';
