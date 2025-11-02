@@ -1,24 +1,43 @@
 import { Search, ShoppingCart, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { VoiceSearchButton } from "@/components/ui/voice-search-button";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Determine which logo to use based on theme
+  const logoPath = mounted && (resolvedTheme === "dark" || theme === "dark")
+    ? "/tubbyAI-logo-dark.png"
+    : "/tubbyAI-logo-light.png";
+
+  const handleTranscription = (text: string) => {
+    setSearchValue(text);
+  };
+
   return (
     <section className="relative overflow-hidden border-b bg-background py-12 sm:py-16 md:py-24 lg:py-32">
       <div className="container relative mx-auto px-4 sm:px-6">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm font-medium">
-            <Star className="h-4 w-4" />
-            <span>108 Curated Premium Products</span>
+          {/* Hero Logo */}
+          <div className="flex justify-center">
+            <img 
+              src={logoPath} 
+              alt="tubbyAI Logo" 
+              className="h-96 sm:h-[32rem] md:h-[40rem] lg:h-[48rem] xl:h-[64rem] w-auto"
+              style={{ imageRendering: "auto" }}
+            />
           </div>
           
-          <h1 className="mb-4 sm:mb-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold">
-            Shop Smart,
-            <br />
-            <span className="font-light">Live Better</span>
-          </h1>
-          
-          <p className="mb-6 sm:mb-8 text-base sm:text-lg md:text-xl text-muted-foreground">
+          <p className="mt-8 mb-6 sm:mb-8 text-base sm:text-lg md:text-xl text-muted-foreground">
             Discover handpicked products from top brands on Amazon.
             <br className="hidden sm:block" />
             <span className="sm:hidden"> </span>
@@ -32,11 +51,19 @@ const Hero = () => {
                 <Input
                   type="search"
                   placeholder="Search products..."
-                  className="h-12 sm:h-14 glass-strong pl-10 sm:pl-12 pr-3 sm:pr-4 text-sm sm:text-base"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  className="h-12 sm:h-14 glass-strong pl-10 sm:pl-12 pr-12 text-sm sm:text-base"
+                />
+                <VoiceSearchButton 
+                  onTranscription={handleTranscription}
+                  className="absolute right-3 top-1/2 -translate-y-1/2"
                 />
               </div>
-              <Button size="lg" variant="default" className="h-12 sm:h-14 px-6 sm:px-8 w-full sm:w-auto">
-                Search
+              <Button size="lg" variant="default" className="h-12 sm:h-14 px-6 sm:px-8 w-full sm:w-auto" asChild>
+                <a href={`/products${searchValue ? `?q=${encodeURIComponent(searchValue)}` : ''}`}>
+                  Search
+                </a>
               </Button>
             </div>
           </div>

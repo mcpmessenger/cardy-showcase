@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import { Gallery4 } from "@/components/ui/gallery4";
-import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { getProductsWithPhotos, productToGalleryItem, products } from "@/lib/products";
@@ -16,8 +15,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b glass-strong">
-        <div className="container mx-auto flex h-20 sm:h-24 items-center justify-between px-4 sm:px-6">
-          <BrandLogo />
+        <div className="container mx-auto flex h-14 sm:h-16 items-center justify-end px-4 sm:px-6">
           <ThemeToggle />
         </div>
       </header>

@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Star, Search, Filter, X } from "lucide-react";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Button } from "@/components/ui/button";
@@ -11,9 +12,18 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ProductImageCarousel } from "@/components/ui/product-image-carousel";
 
 const Products = () => {
+  const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const categories = useMemo(() => getCategoriesWithCounts(), []);
+
+  // Load search query from URL params on mount
+  useEffect(() => {
+    const q = searchParams.get('q');
+    if (q) {
+      setSearchQuery(q);
+    }
+  }, [searchParams]);
 
   const filteredProducts = useMemo(() => {
     let filtered = products;
@@ -42,10 +52,8 @@ const Products = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b glass-strong">
-        <div className="container mx-auto flex h-20 sm:h-24 items-center justify-between px-4 sm:px-6">
-          <a href="/">
-            <BrandLogo />
-          </a>
+        <div className="container mx-auto flex h-14 sm:h-16 items-center justify-end px-4 sm:px-6">
+          <a href="/" className="mr-auto text-lg font-semibold hover:text-primary">← Back</a>
           <ThemeToggle />
         </div>
       </header>
