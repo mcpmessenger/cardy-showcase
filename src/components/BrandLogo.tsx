@@ -3,10 +3,9 @@ import { useEffect, useState } from "react";
 
 interface BrandLogoProps {
   className?: string;
-  withSubtitle?: boolean;
 }
 
-export function BrandLogo({ className = "", withSubtitle = false }: BrandLogoProps) {
+export function BrandLogo({ className = "" }: BrandLogoProps) {
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -24,15 +23,9 @@ export function BrandLogo({ className = "", withSubtitle = false }: BrandLogoPro
       <img 
         src={logoPath} 
         alt="tubbyAI Logo" 
-        className="h-8 md:h-10"
+        className="h-32 md:h-40"
         style={{ imageRendering: "auto" }}
       />
-      {withSubtitle && (
-        <div className="flex flex-col">
-          <span className="text-xl md:text-2xl font-bold">tubbyAI.com</span>
-          <span className="text-xs md:text-sm text-muted-foreground">Voice Assistant</span>
-        </div>
-      )}
     </div>
   );
 }

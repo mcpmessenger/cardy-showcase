@@ -1,0 +1,986 @@
+{
+  "timestamp": "2025-10-31T19:43:31.985558",
+  "total_products": 105,
+  "total_images_downloaded": 78,
+  "total_videos_downloaded": 30,
+  "total_errors": 68,
+  "success_rate": "24.8%",
+  "products": [
+    {
+      "name": "Sony WH-1000XM5 Wireless Premium Noise Canceling Headphones",
+      "asin": "B09XS7JWHH",
+      "url": "https://www.amazon.com/dp/B09XS7JWHH?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": []
+    },
+    {
+      "name": "Apple AirPods Pro (2nd Generation) with MagSafe Case",
+      "asin": "B0CHWRXH8B",
+      "url": "https://www.amazon.com/dp/B0CHWRXH8B?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 0,
+      "errors": []
+    },
+    {
+      "name": "Bose QuietComfort Ultra Wireless Headphones",
+      "asin": "B0CCZ26B5V",
+      "url": "https://www.amazon.com/dp/B0CCZ26B5V?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Anker Soundcore Life Q30 Hybrid Active Noise Cancelling",
+      "asin": "B08HMWZBXC",
+      "url": "https://www.amazon.com/dp/B08HMWZBXC?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "JBL Tune 510BT Wireless On-Ear Headphones",
+      "asin": "B08WM3LMJM",
+      "url": "https://www.amazon.com/dp/B08WM3LMJM?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Beats Studio Pro Wireless Bluetooth Noise Cancelling Headphones",
+      "asin": "B0C8PL6YY9",
+      "url": "https://www.amazon.com/dp/B0C8PL6YY9?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Samsung Galaxy Buds2 Pro True Wireless Bluetooth Earbuds",
+      "asin": "B0B2SH4CN6",
+      "url": "https://www.amazon.com/dp/B0B2SH4CN6?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Sennheiser Momentum 4 Wireless Headphones",
+      "asin": "B0B94KNZZS",
+      "url": "https://www.amazon.com/dp/B0B94KNZZS?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Sony WF-1000XM5 Wireless Noise Canceling Earbuds",
+      "asin": "B0C33XXS56",
+      "url": "https://www.amazon.com/dp/B0C33XXS56?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Jabra Elite 85h Wireless Noise-Canceling Headphones",
+      "asin": "B07RS2WTYJ",
+      "url": "https://www.amazon.com/dp/B07RS2WTYJ?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Ninja Professional Plus BL660 Blender with Auto-iQ",
+      "asin": "B071FCKRFG",
+      "url": "https://www.amazon.com/dp/B071FCKRFG?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Ninja AF101 Air Fryer that Crisps, Roasts, Reheats",
+      "asin": "B07FDJMC5Q",
+      "url": "https://www.amazon.com/dp/B07FDJMC5Q?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Instant Pot Duo 7-in-1 Electric Pressure Cooker 6 Quart",
+      "asin": "B01NBKTPTS",
+      "url": "https://www.amazon.com/dp/B01NBKTPTS?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Keurig K-Classic Coffee Maker K-Cup Pod Single-Serve",
+      "asin": "B07C18P6FL",
+      "url": "https://www.amazon.com/dp/B07C18P6FL?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Cuisinart DCC-3200P1 Perfectemp Coffee Maker 14 Cup",
+      "asin": "B00MVWGQX0",
+      "url": "https://www.amazon.com/dp/B00MVWGQX0?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "KitchenAid Classic Plus Stand Mixer 4.5 Quart Empire Red",
+      "asin": "B00FPSKY4K",
+      "url": "https://www.amazon.com/dp/B00FPSKY4K?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Vitamix E310 Explorian Blender Professional-Grade 48oz Container",
+      "asin": "B06Y2KW92Y",
+      "url": "https://www.amazon.com/dp/B06Y2KW92Y?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "NutriBullet Pro 900W Personal Blender 13 Piece Set",
+      "asin": "B00QJGVH8M",
+      "url": "https://www.amazon.com/dp/B00QJGVH8M?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Magic Bullet Blender Small 11 Piece Personal Blender",
+      "asin": "B00EI7DPI0",
+      "url": "https://www.amazon.com/dp/B00EI7DPI0?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Oster Blender Pro 1200 with Glass Jar 6-Cup Capacity",
+      "asin": "B00GJDMHQO",
+      "url": "https://www.amazon.com/dp/B00GJDMHQO?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Breville BOV845BSS Smart Oven Pro Convection Toaster Oven",
+      "asin": "B00XRVGSMY",
+      "url": "https://www.amazon.com/dp/B00XRVGSMY?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Hamilton Beach 2-Way Brewer Coffee Maker 12-Cup",
+      "asin": "B078J6MZ7M",
+      "url": "https://www.amazon.com/dp/B078J6MZ7M?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Instant Pot Duo Crisp 11-in-1 Air Fryer Pressure Cooker Combo",
+      "asin": "B08B6XN5PC",
+      "url": "https://www.amazon.com/dp/B08B6XN5PC?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Dyson V15 Detect Cordless Vacuum with Laser Detection",
+      "asin": "B09X5VJ8KM",
+      "url": "https://www.amazon.com/dp/B09X5VJ8KM?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Shark Navigator Lift-Away Professional NV356E",
+      "asin": "B08BBPPBD2",
+      "url": "https://www.amazon.com/dp/B08BBPPBD2?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Roomba j7+ Self-Emptying Robot Vacuum",
+      "asin": "B099DRGNV3",
+      "url": "https://www.amazon.com/dp/B099DRGNV3?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "BISSELL CleanView Swivel Upright Bagless Vacuum",
+      "asin": "B087R9FZNB",
+      "url": "https://www.amazon.com/dp/B087R9FZNB?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Shark Cordless Stick Vacuum IZ862H Stratos Vertex",
+      "asin": "B094N7DZRK",
+      "url": "https://www.amazon.com/dp/B094N7DZRK?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "eufy BoostIQ RoboVac 11S Robot Vacuum Cleaner",
+      "asin": "B079QYYGF1",
+      "url": "https://www.amazon.com/dp/B079QYYGF1?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Tineco Pure ONE S11 Smart Cordless Stick Vacuum",
+      "asin": "B087B5C8DR",
+      "url": "https://www.amazon.com/dp/B087B5C8DR?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "BLACK+DECKER Handheld Vacuum Cordless 16V",
+      "asin": "B006LXOJC0",
+      "url": "https://www.amazon.com/dp/B006LXOJC0?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Hoover WindTunnel 3 Max Performance Upright Vacuum",
+      "asin": "B00CKGFXR4",
+      "url": "https://www.amazon.com/dp/B00CKGFXR4?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Miele Complete C3 Marin Canister Vacuum",
+      "asin": "B07CNTQGH5",
+      "url": "https://www.amazon.com/dp/B07CNTQGH5?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Amazon Echo Dot (5th Gen) Smart Speaker with Alexa",
+      "asin": "B09B8V1LZ3",
+      "url": "https://www.amazon.com/dp/B09B8V1LZ3?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 0,
+      "errors": []
+    },
+    {
+      "name": "Amazon Echo Show 8 (3rd Gen) Smart Display",
+      "asin": "B0BLS3Y632",
+      "url": "https://www.amazon.com/dp/B0BLS3Y632?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 0,
+      "errors": []
+    },
+    {
+      "name": "Ring Video Doorbell Pro 2 with 3D Motion Detection",
+      "asin": "B08GD6W9W9",
+      "url": "https://www.amazon.com/dp/B08GD6W9W9?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Google Nest Thermostat Smart Programmable",
+      "asin": "B08HRXQW9Z",
+      "url": "https://www.amazon.com/dp/B08HRXQW9Z?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Philips Hue White and Color Ambiance Smart Bulb Starter Kit",
+      "asin": "B07QV9XB87",
+      "url": "https://www.amazon.com/dp/B07QV9XB87?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "TP-Link Kasa Smart WiFi Light Switch 3-Way Kit",
+      "asin": "B07YXJN1BB",
+      "url": "https://www.amazon.com/dp/B07YXJN1BB?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Wyze Cam v3 with Color Night Vision HD Indoor/Outdoor",
+      "asin": "B08R59YH7W",
+      "url": "https://www.amazon.com/dp/B08R59YH7W?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "ecobee SmartThermostat with Voice Control",
+      "asin": "B09XXS8Q8Q",
+      "url": "https://www.amazon.com/dp/B09XXS8Q8Q?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "August Wi-Fi Smart Lock 4th Generation",
+      "asin": "B0B2P8ZKR8",
+      "url": "https://www.amazon.com/dp/B0B2P8ZKR8?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Fire TV Stick 4K Max streaming device",
+      "asin": "B08MQZXN1X",
+      "url": "https://www.amazon.com/dp/B08MQZXN1X?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 0,
+      "errors": []
+    },
+    {
+      "name": "Fitbit Charge 6 Fitness Tracker with Heart Rate and GPS",
+      "asin": "B0CGJ5P5HN",
+      "url": "https://www.amazon.com/dp/B0CGJ5P5HN?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Apple Watch Series 9 GPS 45mm Smartwatch",
+      "asin": "B0CHX3SZDL",
+      "url": "https://www.amazon.com/dp/B0CHX3SZDL?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "BalanceFrom GoYoga All-Purpose 1/2-Inch Extra Thick Mat",
+      "asin": "B09PKPGCPC",
+      "url": "https://www.amazon.com/dp/B09PKPGCPC?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Bowflex SelectTech 552 Adjustable Dumbbells Pair",
+      "asin": "B001ARYU58",
+      "url": "https://www.amazon.com/dp/B001ARYU58?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Hydro Flask Standard Mouth Water Bottle 32 Fl Oz",
+      "asin": "B07H9Y1B3Y",
+      "url": "https://www.amazon.com/dp/B07H9Y1B3Y?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "TRX Training ALL-IN-ONE Suspension Training System",
+      "asin": "B07GWZQB92",
+      "url": "https://www.amazon.com/dp/B07GWZQB92?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "NordicTrack Commercial 1750 Treadmill",
+      "asin": "B09TQJHW9Y",
+      "url": "https://www.amazon.com/dp/B09TQJHW9Y?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Resistance Bands Set 11-Piece Exercise Bands",
+      "asin": "B07XYDBLFY",
+      "url": "https://www.amazon.com/dp/B07XYDBLFY?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Garmin Forerunner 255 GPS Running Smartwatch",
+      "asin": "B0B1DLF9PH",
+      "url": "https://www.amazon.com/dp/B0B1DLF9PH?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Peloton Bike+ Indoor Exercise Bike with Auto-Follow",
+      "asin": "B08LV81GNZ",
+      "url": "https://www.amazon.com/dp/B08LV81GNZ?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Olaplex No.3 Hair Perfector Repairing Treatment",
+      "asin": "B00TSSNS30",
+      "url": "https://www.amazon.com/dp/B00TSSNS30?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Revlon One-Step Hair Dryer and Volumizer Hot Air Brush",
+      "asin": "B01LSUQSB0",
+      "url": "https://www.amazon.com/dp/B01LSUQSB0?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Oral-B iO Series 9 Electric Toothbrush with iOSense",
+      "asin": "B085R8J6RK",
+      "url": "https://www.amazon.com/dp/B085R8J6RK?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "CeraVe Moisturizing Cream for Face and Body 19 Ounce",
+      "asin": "B00TTD9BRC",
+      "url": "https://www.amazon.com/dp/B00TTD9BRC?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Dyson Airwrap Multi-Styler Complete Long",
+      "asin": "B0BHYT38B9",
+      "url": "https://www.amazon.com/dp/B0BHYT38B9?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Philips Norelco Multigroom Series 7000 Trimmer 23 Pieces",
+      "asin": "B083WN3DWQ",
+      "url": "https://www.amazon.com/dp/B083WN3DWQ?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "The Ordinary AHA 30% + BHA 2% Peeling Solution",
+      "asin": "B01M4MCUAF",
+      "url": "https://www.amazon.com/dp/B01M4MCUAF?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Waterpik Aquarius Water Flosser Professional",
+      "asin": "B000GLRREU",
+      "url": "https://www.amazon.com/dp/B000GLRREU?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Neutrogena Makeup Remover Cleansing Face Wipes 25 Count",
+      "asin": "B005ISG77S",
+      "url": "https://www.amazon.com/dp/B005ISG77S?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Braun Silk-epil 9 9-985 Epilator for Women",
+      "asin": "B07DRCDTYG",
+      "url": "https://www.amazon.com/dp/B07DRCDTYG?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Samsonite Winfield 3 DLX Hardside Luggage 28 Inch Navy",
+      "asin": "B08JC7TZWF",
+      "url": "https://www.amazon.com/dp/B08JC7TZWF?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "SwissGear 1900 ScanSmart TSA Laptop Backpack Black",
+      "asin": "B07G9ZQMNL",
+      "url": "https://www.amazon.com/dp/B07G9ZQMNL?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Ray-Ban Aviator Large Metal Sunglasses",
+      "asin": "B001GNBJNW",
+      "url": "https://www.amazon.com/dp/B001GNBJNW?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Levi's Men's 501 Original Fit Jeans",
+      "asin": "B0018OMYXI",
+      "url": "https://www.amazon.com/dp/B0018OMYXI?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Herschel Supply Co. Little America Laptop Backpack",
+      "asin": "B01J1R5FJC",
+      "url": "https://www.amazon.com/dp/B01J1R5FJC?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Tumi Alpha 3 International Expandable 4 Wheeled Carry-On",
+      "asin": "B07KP67ZD3",
+      "url": "https://www.amazon.com/dp/B07KP67ZD3?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Timberland Men's White Ledge Mid Waterproof Hiking Boot",
+      "asin": "B000XVF7NO",
+      "url": "https://www.amazon.com/dp/B000XVF7NO?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Fossil Gen 6 Smartwatch 44mm Stainless Steel",
+      "asin": "B09C8W7VB6",
+      "url": "https://www.amazon.com/dp/B09C8W7VB6?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Columbia Men's Bora Bora Booney II Sun Hat",
+      "asin": "B0058ZPCGG",
+      "url": "https://www.amazon.com/dp/B0058ZPCGG?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Kate Spade New York Morgan Satchel Leather Handbag",
+      "asin": "B07QYC19MS",
+      "url": "https://www.amazon.com/dp/B07QYC19MS?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Atomic Habits: An Easy & Proven Way to Build Good Habits",
+      "asin": "B07D23CFGR",
+      "url": "https://www.amazon.com/dp/B07D23CFGR?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "The 48 Laws of Power by Robert Greene",
+      "asin": "B0024CEZR6",
+      "url": "https://www.amazon.com/dp/B0024CEZR6?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Kindle Paperwhite (16 GB) 6.8-inch Display Waterproof",
+      "asin": "B08KTZ8249",
+      "url": "https://www.amazon.com/dp/B08KTZ8249?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 0,
+      "errors": []
+    },
+    {
+      "name": "The Psychology of Money by Morgan Housel",
+      "asin": "B084HJSJJ2",
+      "url": "https://www.amazon.com/dp/B084HJSJJ2?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Rich Dad Poor Dad by Robert T. Kiyosaki",
+      "asin": "B07C7M8SX9",
+      "url": "https://www.amazon.com/dp/B07C7M8SX9?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "LEGO Star Wars Millennium Falcon Building Kit",
+      "asin": "B075SDMGP7",
+      "url": "https://www.amazon.com/dp/B075SDMGP7?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Nintendo Switch OLED Model with White Joy-Con",
+      "asin": "B098RKWHHZ",
+      "url": "https://www.amazon.com/dp/B098RKWHHZ?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "PlayStation 5 Console",
+      "asin": "B0CL5KNB9M",
+      "url": "https://www.amazon.com/dp/B0CL5KNB9M?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Monopoly Classic Board Game",
+      "asin": "B00CV5PN1W",
+      "url": "https://www.amazon.com/dp/B00CV5PN1W?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Barbie Dreamhouse Dollhouse with Pool Slide Elevator",
+      "asin": "B07Q2S42KC",
+      "url": "https://www.amazon.com/dp/B07Q2S42KC?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Apple iPad (10th Generation) 10.9-inch Wi-Fi 64GB",
+      "asin": "B0BJLXMVMV",
+      "url": "https://www.amazon.com/dp/B0BJLXMVMV?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 0,
+      "errors": []
+    },
+    {
+      "name": "Logitech MX Master 3S Wireless Performance Mouse",
+      "asin": "B09HM94VDS",
+      "url": "https://www.amazon.com/dp/B09HM94VDS?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Apple AirTag 4 Pack - Precision Finding with iPhone",
+      "asin": "B0933QJXHY",
+      "url": "https://www.amazon.com/dp/B0933QJXHY?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Anker PowerCore 20100mAh Portable Charger",
+      "asin": "B00X5RV14Y",
+      "url": "https://www.amazon.com/dp/B00X5RV14Y?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Samsung T7 Portable SSD 1TB External Solid State Drive",
+      "asin": "B0874XN4D8",
+      "url": "https://www.amazon.com/dp/B0874XN4D8?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Blue Yeti USB Microphone for Streaming Gaming Podcasting",
+      "asin": "B00N1YPXW2",
+      "url": "https://www.amazon.com/dp/B00N1YPXW2?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "LG 27-Inch UltraGear QHD Gaming Monitor 165Hz",
+      "asin": "B0B7K7W6MJ",
+      "url": "https://www.amazon.com/dp/B0B7K7W6MJ?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Bose SoundLink Flex Bluetooth Portable Speaker",
+      "asin": "B09Q3JG3T2",
+      "url": "https://www.amazon.com/dp/B09Q3JG3T2?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Keychron K2 Wireless Mechanical Keyboard RGB Backlight",
+      "asin": "B07QBZH7KN",
+      "url": "https://www.amazon.com/dp/B07QBZH7KN?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Lamicall Laptop Stand Ergonomic Aluminum Computer Stand",
+      "asin": "B07DWM9WNM",
+      "url": "https://www.amazon.com/dp/B07DWM9WNM?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "NOCO Boost Plus GB40 1000A UltraSafe Jump Starter",
+      "asin": "B015TKUPIC",
+      "url": "https://www.amazon.com/dp/B015TKUPIC?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Garmin DriveSmart 65 GPS Navigator with Alexa 6.95 Display",
+      "asin": "B07RXQNVX1",
+      "url": "https://www.amazon.com/dp/B07RXQNVX1?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Rain-X Latitude Water Repellency Wiper Blade 22 Inch",
+      "asin": "B000BPQPKE",
+      "url": "https://www.amazon.com/dp/B000BPQPKE?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Armor All Car Vacuum Cleaner 2.5 Gallon Wet/Dry",
+      "asin": "B00JZIGY7U",
+      "url": "https://www.amazon.com/dp/B00JZIGY7U?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Chemical Guys HOL148 16-Piece Arsenal Builder Car Wash Kit",
+      "asin": "B01N30WPSA",
+      "url": "https://www.amazon.com/dp/B01N30WPSA?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Dyson Pure Cool TP01 HEPA Air Purifier and Tower Fan",
+      "asin": "B01D8DAYII",
+      "url": "https://www.amazon.com/dp/B01D8DAYII?tag=aipro00-20",
+      "images_downloaded": 3,
+      "videos_downloaded": 1,
+      "errors": []
+    },
+    {
+      "name": "Beckham Hotel Collection Bed Pillows Queen Size 2 Pack",
+      "asin": "B01ICUHNIO",
+      "url": "https://www.amazon.com/dp/B01ICUHNIO?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Utopia Bedding Queen Sheet Set 4 Piece Grey",
+      "asin": "B079GJJZ59",
+      "url": "https://www.amazon.com/dp/B079GJJZ59?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Weighted Blanket 15 lbs Queen Size 60x80 Grey",
+      "asin": "B07HHMWV6V",
+      "url": "https://www.amazon.com/dp/B07HHMWV6V?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Keter Urban Bloomer Raised Garden Bed Planter 37 Gallon",
+      "asin": "B00YL3D9HO",
+      "url": "https://www.amazon.com/dp/B00YL3D9HO?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Greenworks 40V 16-Inch Cordless Lawn Mower",
+      "asin": "B07Q3D13DV",
+      "url": "https://www.amazon.com/dp/B07Q3D13DV?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    },
+    {
+      "name": "Miracle-Gro Water Soluble All Purpose Plant Food 1.5 lb",
+      "asin": "B00GWK3S8U",
+      "url": "https://www.amazon.com/dp/B00GWK3S8U?tag=aipro00-20",
+      "images_downloaded": 0,
+      "videos_downloaded": 0,
+      "errors": [
+        "Failed to fetch product page"
+      ]
+    }
+  ]
+}

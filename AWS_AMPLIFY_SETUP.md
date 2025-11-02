@@ -232,3 +232,4 @@ Your store is now deployed and accessible to the world!
 
 **Congratulations!** 🚀
 
+

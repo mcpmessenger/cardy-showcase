@@ -1,0 +1,58 @@
+═══════════════════════════════════════════════════════════════
+  HOW TO GET IMAGES FOR ALL PRODUCTS - QUICK START
+═══════════════════════════════════════════════════════════════
+
+STEP 1: Navigate to Scraping Script folder
+   cd "Scraping Script"
+
+STEP 2: Install required packages (if not already installed)
+   pip install requests beautifulsoup4 pillow
+
+STEP 3: Run the scraper
+   python amazon_product_scraper.py products-simple.json
+
+That's it! The scraper will:
+  ✓ Download images for all 108 products
+  ✓ Save them in product_media/ folder
+  ✓ Generate a report (scrape_report.json)
+  ⏱️  Takes 6-9 hours (with rate limiting to avoid IP blocks)
+
+═══════════════════════════════════════════════════════════════
+  AFTER DOWNLOADING (3 steps)
+═══════════════════════════════════════════════════════════════
+
+1. Update JSON with local image paths:
+   python update_json_with_local_images.py
+
+2. Copy images to public folder:
+   Copy-Item -Path "Scraping Script\product_media" -Destination "public\product_media" -Recurse -Force
+
+3. Copy updated JSON to root:
+   Copy-Item -Path "Scraping Script\products-simple.json" -Destination "products-simple.json" -Force
+
+═══════════════════════════════════════════════════════════════
+  IF YOU GET BLOCKED (403 Forbidden)
+═══════════════════════════════════════════════════════════════
+
+Slow down the scraper by increasing the rate limit:
+
+   python amazon_product_scraper.py products-simple.json --rate-limit 5.0
+
+Or even slower if still blocked:
+
+   python amazon_product_scraper.py products-simple.json --rate-limit 10.0
+
+═══════════════════════════════════════════════════════════════
+  RECOMMENDED: Use Batch Processing (Can Resume)
+═══════════════════════════════════════════════════════════════
+
+For better reliability:
+
+   python batch_scraper.py products-simple.json --batch-size 25
+
+This splits products into batches and you can resume if interrupted.
+
+═══════════════════════════════════════════════════════════════
+
+For detailed instructions, see: GET_ALL_IMAGES.md
+

@@ -16,8 +16,8 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 border-b glass-strong">
-        <div className="container mx-auto flex h-14 sm:h-16 items-center justify-between px-4 sm:px-6">
-          <BrandLogo withSubtitle />
+        <div className="container mx-auto flex h-20 sm:h-24 items-center justify-between px-4 sm:px-6">
+          <BrandLogo />
           <ThemeToggle />
         </div>
       </header>
