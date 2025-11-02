@@ -83,7 +83,7 @@ export function ProductImageCarousel({
     return (
       <div className={cn("relative aspect-square overflow-hidden rounded-t-xl bg-muted", className)}>
         <img
-          src="/placeholder.svg"
+          src="/placeholder.png"
           alt={product.name}
           className="h-full w-full object-cover"
         />
@@ -140,7 +140,7 @@ export function ProductImageCarousel({
                   if (imageUrl !== product.image_url && product.image_url && !currentSrc.includes(product.image_url)) {
                     e.currentTarget.src = product.image_url;
                   } else {
-                    e.currentTarget.src = '/placeholder.svg';
+                    e.currentTarget.src = '/placeholder.png';
                   }
                 }}
               />

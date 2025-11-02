@@ -125,7 +125,7 @@ const Gallery4 = ({
                         alt={item.title}
                         className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                         onError={(e) => {
-                          e.currentTarget.src = '/placeholder.svg';
+                          e.currentTarget.src = '/placeholder.png';
                         }}
                         loading="lazy"
                       />

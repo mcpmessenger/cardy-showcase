@@ -24,7 +24,7 @@ export function getProductImageUrl(product: {
   }
   
   // Fallback to remote image URL
-  return product.image_url || '/placeholder.svg';
+  return product.image_url || '/placeholder.png';
 }
 
 /**
