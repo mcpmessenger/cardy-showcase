@@ -1,13 +1,34 @@
 import { Link } from "react-router-dom";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Determine which logo to use based on theme
+  const logoPath = mounted && (resolvedTheme === "dark" || theme === "dark")
+    ? "/tubbyAI-logo-dark.png"
+    : "/tubbyAI-logo-light.png";
+
   return (
     <footer className="border-t bg-background py-8 sm:py-12">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="mb-4 text-lg font-semibold">tubbyAI</h3>
+            {mounted && (
+              <img 
+                src={logoPath} 
+                alt="tubbyAI Logo" 
+                className="h-16 mb-4" 
+                style={{ imageRendering: "auto" }}
+              />
+            )}
             <p className="text-sm text-muted-foreground">
               Voice-powered shopping assistant. Find products faster with AI.
             </p>
@@ -62,7 +83,7 @@ const Footer = () => {
         <div className="mt-8 border-t pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-xs text-muted-foreground text-center sm:text-left">
-              © {new Date().getFullYear()} tubbyAI. All rights reserved.
+              © {new Date().getFullYear()}. All rights reserved.
             </p>
             <p className="text-xs text-muted-foreground text-center sm:text-right">
               Voice Assistant Store | Powered by AI
