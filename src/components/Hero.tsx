@@ -14,18 +14,34 @@ const Hero = () => {
     setMounted(true);
   }, []);
 
-  // Determine which logo to use based on theme
+  // Determine which logo and banner to use based on theme
   const logoPath = mounted && (resolvedTheme === "dark" || theme === "dark")
     ? "/tubbyAI-logo-dark.png"
     : "/tubbyAI-logo-light.png";
+  
+  const bannerPath = mounted && (resolvedTheme === "dark" || theme === "dark")
+    ? "/banner-dark.png"
+    : "/banner-light.png";
 
   const handleTranscription = (text: string) => {
     setSearchValue(text);
   };
 
   return (
-    <section className="relative overflow-hidden border-b bg-background py-12 sm:py-16 md:py-24 lg:py-32">
-      <div className="container relative mx-auto px-4 sm:px-6">
+    <section className="relative overflow-hidden border-b py-12 sm:py-16 md:py-24 lg:py-32">
+      {/* Background Banner */}
+      {mounted && (
+        <div className="absolute inset-0 -z-10">
+          <img 
+            src={bannerPath} 
+            alt="Background Banner" 
+            className="h-full w-full object-cover opacity-30 dark:opacity-20"
+          />
+          <div className="absolute inset-0 bg-background/50 backdrop-blur-sm"></div>
+        </div>
+      )}
+      
+      <div className="container relative mx-auto px-4 sm:px-6 z-10">
         <div className="mx-auto max-w-4xl text-center">
           {/* Hero Logo */}
           <div className="flex justify-center">
