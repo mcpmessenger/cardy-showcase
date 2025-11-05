@@ -7,7 +7,7 @@ import type { Product } from "@/types/product";
  */
 export const PRODUCT_MASTER_LIST_URL = 
   import.meta.env.VITE_PRODUCT_MASTER_LIST_URL || 
-  "https://your-s3-bucket-name.s3.amazonaws.com/products.json";
+  "https://tubbyai-products-catalog.s3.amazonaws.com/unified-products-master.json";
 
 /**
  * Cache for the product list to avoid repeated fetches
