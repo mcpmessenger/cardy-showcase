@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import productsData from "../../products-simple.json";
 import type { Product } from "@/types/product";
 import {
@@ -55,6 +56,30 @@ if (typeof window !== "undefined") {
 }
 
 /**
+ * React hook to get products with state management
+ * Ensures components re-render when products are loaded from S3
+ */
+export function useProducts() {
+  const [productsState, setProductsState] = useState<Product[]>(localProducts);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    initializeProducts()
+      .then((loadedProducts) => {
+        setProductsState(loadedProducts);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Failed to load products:", error);
+        setProductsState(localProducts);
+        setIsLoading(false);
+      });
+  }, []);
+
+  return { products: productsState, isLoading };
+}
+
+/**
  * Get featured products (products with "Best Seller", "Amazon's Choice", or "Premium Pick" badges)
  */
 export function getFeaturedProducts(limit: number = 8): Product[] {
@@ -68,9 +93,11 @@ export function getFeaturedProducts(limit: number = 8): Product[] {
  * Get products with photos for showcasing in carousel
  * Returns ONLY products with local_images to avoid mobile display issues
  * As we add more local images, the carousel will expand automatically
+ * @param productsList Optional products array to use instead of module-level products
  */
-export function getProductsWithPhotos(): Product[] {
-  return getProducts().filter((product) => {
+export function getProductsWithPhotos(productsList?: Product[]): Product[] {
+  const productsToUse = productsList || getProducts();
+  return productsToUse.filter((product) => {
     // Only return products with local images
     return product.local_images && product.local_images.length > 0;
   });
@@ -78,9 +105,12 @@ export function getProductsWithPhotos(): Product[] {
 
 /**
  * Get products by category
+ * @param category Category to filter by
+ * @param productsList Optional products array to use instead of module-level products
  */
-export function getProductsByCategory(category: string): Product[] {
-  return getProducts().filter((product) => product.category === category);
+export function getProductsByCategory(category: string, productsList?: Product[]): Product[] {
+  const productsToUse = productsList || getProducts();
+  return productsToUse.filter((product) => product.category === category);
 }
 
 /**
@@ -92,11 +122,13 @@ export function getProductsBySubcategory(subcategory: string): Product[] {
 
 /**
  * Get all unique categories with product counts
+ * @param productsList Optional products array to use instead of module-level products
  */
-export function getCategoriesWithCounts(): Array<{ name: string; count: number; displayName: string }> {
+export function getCategoriesWithCounts(productsList?: Product[]): Array<{ name: string; count: number; displayName: string }> {
+  const productsToUse = productsList || getProducts();
   const categoryMap = new Map<string, number>();
   
-  getProducts().forEach((product) => {
+  productsToUse.forEach((product) => {
     const count = categoryMap.get(product.category) || 0;
     categoryMap.set(product.category, count + 1);
   });
@@ -125,10 +157,13 @@ export function getCategoriesWithCounts(): Array<{ name: string; count: number; 
 
 /**
  * Search products by name or description
+ * @param query Search query
+ * @param productsList Optional products array to use instead of module-level products
  */
-export function searchProducts(query: string): Product[] {
+export function searchProducts(query: string, productsList?: Product[]): Product[] {
+  const productsToUse = productsList || getProducts();
   const lowerQuery = query.toLowerCase();
-  return getProducts().filter(
+  return productsToUse.filter(
     (product) =>
       product.name.toLowerCase().includes(lowerQuery) ||
       product.description.toLowerCase().includes(lowerQuery)

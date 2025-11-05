@@ -8,15 +8,16 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { VoiceSearchButton } from "@/components/ui/voice-search-button";
-import { products, getCategoriesWithCounts, getProductsByCategory, searchProducts } from "@/lib/products";
+import { useProducts, getCategoriesWithCounts, getProductsByCategory, searchProducts } from "@/lib/products";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ProductImageCarousel } from "@/components/ui/product-image-carousel";
 
 const Products = () => {
+  const { products, isLoading } = useProducts();
   const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const categories = useMemo(() => getCategoriesWithCounts(), []);
+  const categories = useMemo(() => getCategoriesWithCounts(products), [products]);
 
   // Load search query from URL params on mount
   useEffect(() => {
@@ -30,17 +31,17 @@ const Products = () => {
     let filtered = products;
 
     if (selectedCategory !== "all") {
-      filtered = getProductsByCategory(selectedCategory);
+      filtered = getProductsByCategory(selectedCategory, products);
     }
 
     if (searchQuery.trim()) {
-      filtered = searchProducts(searchQuery).filter((p) =>
+      filtered = searchProducts(searchQuery, products).filter((p) =>
         selectedCategory === "all" || p.category === selectedCategory
       );
     }
 
     return filtered;
-  }, [searchQuery, selectedCategory]);
+  }, [searchQuery, selectedCategory, products]);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("en-US", {
@@ -131,7 +132,11 @@ const Products = () => {
         {/* Products Grid */}
         <section className="py-6 sm:py-8 md:py-12">
           <div className="container mx-auto px-4 sm:px-6">
-            {filteredProducts.length === 0 ? (
+            {isLoading ? (
+              <div className="py-20 text-center">
+                <p className="text-lg text-muted-foreground">Loading products...</p>
+              </div>
+            ) : filteredProducts.length === 0 ? (
               <div className="py-20 text-center">
                 <p className="text-lg text-muted-foreground">No products found. Try adjusting your filters.</p>
               </div>

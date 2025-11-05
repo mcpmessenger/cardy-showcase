@@ -3,14 +3,15 @@ import Footer from "@/components/Footer";
 import { Gallery4 } from "@/components/ui/gallery4";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { getProductsWithPhotos, productToGalleryItem, products } from "@/lib/products";
+import { useProducts, getProductsWithPhotos, productToGalleryItem } from "@/lib/products";
 import { useMemo } from "react";
 
 const Index = () => {
+  const { products, isLoading } = useProducts();
   const featuredProducts = useMemo(() => {
-    const featured = getProductsWithPhotos().slice(0, 40); // Limit to 40 for best mobile experience
+    const featured = getProductsWithPhotos(products).slice(0, 40); // Limit to 40 for best mobile experience
     return featured.map((product, index) => productToGalleryItem(product, index));
-  }, []);
+  }, [products]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -38,7 +39,7 @@ const Index = () => {
               Ready to Find Your Perfect Product?
             </h2>
             <p className="mb-6 sm:mb-8 text-base sm:text-lg text-muted-foreground">
-              Browse our full catalog of {products.length} premium products
+              Browse our full catalog of {isLoading ? "..." : products.length} premium products
             </p>
             <Button size="lg" variant="outline" className="backdrop-blur-sm" asChild>
               <a href="/products">View All Products</a>
