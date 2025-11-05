@@ -120,17 +120,24 @@ export function ProductImageCarousel({
           let imageUrl: string;
           
           if (img.startsWith('product_media/')) {
-            // Local image from public folder
-            imageUrl = `/${img}`;
+            // Local image from public folder - ensure absolute path from root
+            // Use absolute URL to prevent relative path resolution issues
+            imageUrl = new URL(`/${img.replace(/^\/+/, '')}`, window.location.origin).pathname;
           } else if (img.startsWith('http://') || img.startsWith('https://')) {
             // Direct HTTP URL (Amazon images)
             imageUrl = img;
           } else if (img.startsWith('/')) {
-            // Absolute path
-            imageUrl = img;
+            // Already absolute path - ensure it's from root by using URL constructor
+            imageUrl = new URL(img, window.location.origin).pathname;
           } else {
-            // Fallback: treat as relative path or use image_url
-            imageUrl = product.image_url || '/placeholder.png';
+            // Relative path - convert to absolute from root
+            imageUrl = new URL(`/${img.replace(/^\/+/, '')}`, window.location.origin).pathname;
+          }
+          
+          // Final check: ensure the path is absolute and doesn't include route prefixes
+          if (imageUrl.startsWith('/product_media/') && !imageUrl.startsWith('http')) {
+            // Ensure it's a clean absolute path from site root (no /products/ prefix)
+            imageUrl = imageUrl.replace(/^\/products\/product_media\//, '/product_media/');
           }
           
           return (
@@ -153,13 +160,26 @@ export function ProductImageCarousel({
                     imageIndex: index,
                     attemptedUrl: imageUrl,
                     currentSrc: currentSrc,
-                    productId: product.asin
+                    productId: product.asin,
+                    locationPath: window.location.pathname
                   });
+                  
+                  // Check if the issue is path resolution (currentSrc includes /products/)
+                  if (currentSrc.includes('/products/product_media/')) {
+                    // Fix: use absolute URL from origin root
+                    const fixedUrl = new URL(imageUrl, window.location.origin).href;
+                    console.log(`  → Fixing path resolution: ${fixedUrl}`);
+                    e.currentTarget.src = fixedUrl;
+                    return;
+                  }
                   
                   // Try fallback to image_url if not already using it
                   if (imageUrl !== product.image_url && product.image_url && !currentSrc.includes(product.image_url)) {
-                    console.log(`  → Trying fallback image_url: ${product.image_url}`);
-                    e.currentTarget.src = product.image_url;
+                    const fallbackUrl = product.image_url.startsWith('http') 
+                      ? product.image_url 
+                      : new URL(product.image_url, window.location.origin).href;
+                    console.log(`  → Trying fallback image_url: ${fallbackUrl}`);
+                    e.currentTarget.src = fallbackUrl;
                   } else {
                     console.log(`  → Using placeholder image`);
                     e.currentTarget.src = '/placeholder.png';
