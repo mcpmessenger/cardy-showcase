@@ -25,6 +25,17 @@ export function ProductImageCarousel({
     ? product.local_images 
     : (product.image_url ? [product.image_url] : []);
   const images = allImages.slice(0, MAX_IMAGES);
+  
+  // Log image availability for debugging
+  if (images.length === 0) {
+    console.warn(`⚠️ No images available for product:`, {
+      product: product.name,
+      asin: product.asin,
+      hasLocalImages: !!product.local_images,
+      localImagesCount: product.local_images?.length || 0,
+      hasImageUrl: !!product.image_url
+    });
+  }
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
@@ -136,11 +147,31 @@ export function ProductImageCarousel({
                     return; // Already on placeholder, don't change again
                   }
                   
+                  // Log image loading errors for debugging
+                  console.warn(`⚠️ Image failed to load:`, {
+                    product: product.name,
+                    imageIndex: index,
+                    attemptedUrl: imageUrl,
+                    currentSrc: currentSrc,
+                    productId: product.asin
+                  });
+                  
                   // Try fallback to image_url if not already using it
                   if (imageUrl !== product.image_url && product.image_url && !currentSrc.includes(product.image_url)) {
+                    console.log(`  → Trying fallback image_url: ${product.image_url}`);
                     e.currentTarget.src = product.image_url;
                   } else {
+                    console.log(`  → Using placeholder image`);
                     e.currentTarget.src = '/placeholder.png';
+                  }
+                }}
+                onLoad={() => {
+                  // Log successful image loads for first image only
+                  if (index === 0) {
+                    console.log(`✅ Image loaded:`, {
+                      product: product.name,
+                      imageUrl: imageUrl
+                    });
                   }
                 }}
               />

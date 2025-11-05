@@ -45,21 +45,34 @@ export async function fetchUnifiedProductList(): Promise<UnifiedProduct[]> {
       throw new Error("Invalid product list format: expected an array");
     }
 
+    // Log product loading statistics
+    const productsWithImages = products.filter(p => p.local_images && p.local_images.length > 0).length;
+    const totalImages = products.reduce((sum, p) => sum + (p.local_images?.length || 0), 0);
+    console.log(`✅ Loaded ${products.length} products from S3:`, {
+      totalProducts: products.length,
+      productsWithImages,
+      totalImages,
+      url: PRODUCT_MASTER_LIST_URL
+    });
+
     // Cache the results
     cachedProducts = products;
     cacheTimestamp = now;
 
     return products;
   } catch (error) {
-    console.error("Failed to fetch unified product list:", error);
+    console.error("❌ Failed to fetch unified product list:", error);
+    console.error("  URL:", PRODUCT_MASTER_LIST_URL);
+    console.error("  Error details:", error instanceof Error ? error.message : String(error));
     
     // Return cached data if available, even if expired
     if (cachedProducts) {
-      console.warn("Using stale cached product data");
+      console.warn("⚠️ Using stale cached product data");
       return cachedProducts;
     }
 
     // Fallback: return empty array
+    console.warn("⚠️ No products available - returning empty array");
     return [];
   }
 }

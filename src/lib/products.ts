@@ -23,15 +23,31 @@ export async function initializeProducts(): Promise<Product[]> {
     const unifiedProducts = await getAvailableUnifiedProducts();
     if (unifiedProducts.length > 0) {
       products = unifiedProductsToProducts(unifiedProducts);
-      console.log(`Loaded ${products.length} products from unified master list`);
+      
+      // Log conversion statistics
+      const productsWithImages = products.filter(p => p.local_images && p.local_images.length > 0).length;
+      const totalImages = products.reduce((sum, p) => sum + (p.local_images?.length || 0), 0);
+      const productsWithRatings = products.filter(p => p.rating && p.rating > 0).length;
+      
+      console.log(`✅ Products initialized:`, {
+        total: products.length,
+        withImages: productsWithImages,
+        totalImages,
+        withRatings: productsWithRatings,
+        source: 'S3 unified master list'
+      });
+      
       return products;
+    } else {
+      console.warn("⚠️ No products found in unified master list, using local fallback");
     }
   } catch (error) {
-    console.warn("Failed to load unified products, using local fallback:", error);
+    console.error("❌ Failed to load unified products, using local fallback:", error);
   }
   
   // Fallback to local products
   products = localProducts;
+  console.log(`📦 Using local products fallback: ${products.length} products`);
   return products;
 }
 
