@@ -33,14 +33,14 @@ class BatchScraper:
     """
     
     def __init__(self, batch_size: int = 25, rate_limit: float = 2.0, 
-                 max_images: int = 10, max_videos: int = 1):
+                 max_images: int = 3, max_videos: int = 1):
         """
         Initialize batch scraper.
         
         Args:
             batch_size: Number of products per batch
             rate_limit: Rate limit for each batch
-            max_images: Maximum images per product (default: 10)
+            max_images: Maximum images per product (default: 3 - just a couple good images)
             max_videos: Maximum videos per product (default: 1)
         """
         self.batch_size = batch_size
@@ -232,8 +232,8 @@ def main():
     parser.add_argument(
         '--max-images',
         type=int,
-        default=10,
-        help='Maximum images per product (default: 10)'
+        default=3,
+        help='Maximum images per product (default: 3 - just a couple good images)'
     )
     parser.add_argument(
         '--max-videos',

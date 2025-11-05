@@ -9,7 +9,7 @@ import time
 import requests
 import re
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, Optional, List
 from urllib.parse import urlparse
 
 def get_amazon_page_html(url: str) -> Optional[str]:
@@ -44,10 +44,10 @@ def get_amazon_page_html(url: str) -> Optional[str]:
         print(f"  Error fetching page: {e}")
         return None
 
-def extract_image_url_from_html(html: str, asin: str) -> Optional[str]:
-    """Extract the main product image URL from Amazon HTML."""
+def extract_image_urls_from_html(html: str, asin: str, max_images: int = 3) -> List[str]:
+    """Extract main product image URLs from Amazon HTML (up to max_images)."""
     if not html:
-        return None
+        return []
     
     # More comprehensive patterns from the main scraper
     asin_pattern = re.escape(asin)
@@ -101,22 +101,42 @@ def extract_image_url_from_html(html: str, asin: str) -> Optional[str]:
                         clean_https = re.findall(r'(https://[^"]+\.jpg)', match)
                         image_urls.update(urls + clean_https)
     
-    # Clean and return first valid URL
+    # Clean URLs and filter for main product images only
+    clean_urls = []
+    excluded_patterns = [
+        '/related/', '/recommended/', '/sponsored/', '/customer/', '/review/',
+        'community-reviews', 'aplus-media-library', 'community-customer-media',
+        '_UC', '__CR', '__PT', '__AC_UC', '__AC_SR', '__AC_UF', '__AC_SY', '__AC_SX', '__AC_SZ'
+    ]
+    
+    # Only accept _AC_SL patterns (main product images)
+    main_product_patterns = [r'\._AC_SL1500_\.jpg', r'\._AC_SL1000_\.jpg', r'\._AC_SL750_\.jpg', r'\._AC_SL500_\.jpg']
+    
     for url in image_urls:
         # Remove JSON artifacts
         url = re.sub(r'["\',\s}].*$', '', url)
         url = url.strip('"').strip()
         
         # Skip excluded patterns (related products, etc.)
-        excluded = ['/related/', '/recommended/', '/sponsored/', '/customer/', '/review/']
-        if any(excl in url for excl in excluded):
+        if any(excl in url for excl in excluded_patterns):
             continue
         
-        # Must be valid Amazon media URL
-        if url.startswith('https://m.media-amazon.com') and '.jpg' in url.lower() and len(url) > 30:
-            return url
+        # Must be valid Amazon media URL with _AC_SL pattern (main product images)
+        if (url.startswith('https://m.media-amazon.com') and 
+            '.jpg' in url.lower() and 
+            len(url) > 30 and
+            any(re.search(pattern, url, re.IGNORECASE) for pattern in main_product_patterns)):
+            # Upgrade to high resolution
+            if '._AC_SL' in url:
+                url = re.sub(r'_AC_SL\d+_', '_AC_SL1500_', url)
+            clean_urls.append(url)
     
-    return None
+    # Remove duplicates and sort by resolution (highest first)
+    unique_urls = list(dict.fromkeys(clean_urls))  # Preserves order while removing duplicates
+    unique_urls.sort(key=lambda x: ('_AC_SL1500_' in x, '_AC_SL1000_' in x, '_AC_SL750_' in x), reverse=True)
+    
+    # Return up to max_images
+    return unique_urls[:max_images]
 
 def download_image(url: str, output_path: str, timeout: int = 30) -> bool:
     """Download an image from URL to local path."""
@@ -232,30 +252,37 @@ def main():
             time.sleep(2)  # Rate limiting
             continue
         
-        # Extract image URL
-        image_url = extract_image_url_from_html(html, asin)
-        if not image_url:
-            print(f"  [FAILED] Could not extract image URL from page")
+        # Extract image URLs (up to 3 images)
+        image_urls = extract_image_urls_from_html(html, asin, max_images=3)
+        if not image_urls:
+            print(f"  [FAILED] Could not extract image URLs from page")
             fail_count += 1
             time.sleep(2)
             continue
         
-        print(f"  Found image URL, downloading...")
+        print(f"  Found {len(image_urls)} image URL(s), downloading...")
         
-        # Download image
-        output_path = product_dir / "image_01.jpg"
-        if download_image(image_url, str(output_path)):
-            # Copy to public folder
-            import shutil
-            public_product_dir = public_dir / asin
-            public_product_dir.mkdir(parents=True, exist_ok=True)
-            public_output_path = public_product_dir / "image_01.jpg"
-            shutil.copy2(output_path, public_output_path)
-            
-            print(f"  [OK] Downloaded: {output_path.name}")
+        # Download images (up to 3)
+        downloaded_count = 0
+        import shutil
+        for img_idx, image_url in enumerate(image_urls, 1):
+            output_path = product_dir / f"image_{img_idx:02d}.jpg"
+            if download_image(image_url, str(output_path)):
+                # Copy to public folder
+                public_product_dir = public_dir / asin
+                public_product_dir.mkdir(parents=True, exist_ok=True)
+                public_output_path = public_product_dir / f"image_{img_idx:02d}.jpg"
+                shutil.copy2(output_path, public_output_path)
+                
+                print(f"  [OK] Downloaded: {output_path.name}")
+                downloaded_count += 1
+            else:
+                print(f"  [WARNING] Failed to download image {img_idx}")
+        
+        if downloaded_count > 0:
             success_count += 1
         else:
-            print(f"  [FAILED] Could not download image")
+            print(f"  [FAILED] Could not download any images")
             fail_count += 1
         
         # Rate limiting - be respectful to Amazon

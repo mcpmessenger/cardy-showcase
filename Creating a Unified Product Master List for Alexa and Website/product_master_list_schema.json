@@ -1,0 +1,68 @@
+{
+  "title": "Unified Product Master List Schema",
+  "type": "array",
+  "description": "A list of products for the tubbyai.com store and Alicia Alexa skill.",
+  "items": {
+    "type": "object",
+    "properties": {
+      "product_id": {
+        "type": "string",
+        "description": "A unique identifier for the product (e.g., SKU or a simple slug)."
+      },
+      "name": {
+        "type": "string",
+        "description": "The full name of the product."
+      },
+      "short_name": {
+        "type": "string",
+        "description": "A shorter, voice-friendly name for the Alexa skill (optional)."
+      },
+      "description": {
+        "type": "string",
+        "description": "A detailed description of the product."
+      },
+      "voice_description": {
+        "type": "string",
+        "description": "A concise, natural-sounding description for the Alexa skill (e.g., 'a great gift for pet lovers')."
+      },
+      "price": {
+        "type": "number",
+        "format": "float",
+        "description": "The price of the product."
+      },
+      "currency": {
+        "type": "string",
+        "description": "The currency code (e.g., USD)."
+      },
+      "affiliate_url": {
+        "type": "string",
+        "format": "url",
+        "description": "The AWS affiliate link for the product."
+      },
+      "image_url": {
+        "type": "string",
+        "format": "url",
+        "description": "URL for the product image (for the website and Alexa APL display)."
+      },
+      "category": {
+        "type": "string",
+        "description": "The product category (e.g., 'Pet Supplies', 'Electronics')."
+      },
+      "is_available": {
+        "type": "boolean",
+        "description": "Flag to indicate if the product is currently available."
+      }
+    },
+    "required": [
+      "product_id",
+      "name",
+      "description",
+      "price",
+      "currency",
+      "affiliate_url",
+      "image_url",
+      "category",
+      "is_available"
+    ]
+  }
+}

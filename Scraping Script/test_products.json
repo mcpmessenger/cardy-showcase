@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Sony WH-1000XM5 Wireless Premium Noise Canceling Headphones",
+    "price": 398.0,
+    "asin": "B09XS7JWHH",
+    "url": "https://www.amazon.com/dp/B09XS7JWHH?tag=aipro00-20",
+    "image_url": "https://m.media-amazon.com/images/I/61+btxzpfDL._AC_SL1500_.jpg",
+    "rating": 4.5,
+    "reviews": 8543,
+    "description": "Industry-leading noise canceling, 30-hour battery, premium sound quality",
+    "category": "electronics",
+    "subcategory": "headphones",
+    "badge": "Best Seller"
+  },
+  {
+    "name": "Apple AirPods Pro (2nd Generation) with MagSafe Case",
+    "price": 249.0,
+    "asin": "B0CHWRXH8B",
+    "url": "https://www.amazon.com/dp/B0CHWRXH8B?tag=aipro00-20",
+    "image_url": "https://m.media-amazon.com/images/I/61SUj2aKoEL._AC_SL1500_.jpg",
+    "rating": 4.6,
+    "reviews": 45782,
+    "description": "Active Noise Cancellation, Spatial Audio, MagSafe charging",
+    "category": "electronics",
+    "subcategory": "headphones",
+    "badge": "Amazon's Choice"
+  },
+  {
+    "name": "Bose QuietComfort Ultra Wireless Headphones",
+    "price": 429.0,
+    "asin": "B0CCZ26B5V",
+    "url": "https://www.amazon.com/dp/B0CCZ26B5V?tag=aipro00-20",
+    "image_url": "https://m.media-amazon.com/images/I/51QeS0jCLEL._AC_SL1500_.jpg",
+    "rating": 4.3,
+    "reviews": 3421,
+    "description": "CustomTune technology, spatial audio, 24-hour battery life",
+    "category": "electronics",
+    "subcategory": "headphones",
+    "badge": "Premium Pick"
+  }
+]

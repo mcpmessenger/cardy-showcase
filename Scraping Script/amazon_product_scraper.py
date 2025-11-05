@@ -63,14 +63,14 @@ class AmazonProductScraper:
     """
     
     def __init__(self, output_dir: str = "product_media", rate_limit: float = 2.0, 
-                 max_images: int = 10, max_videos: int = 1):
+                 max_images: int = 3, max_videos: int = 1):
         """
         Initialize the scraper.
         
         Args:
             output_dir: Base directory for saving media files
             rate_limit: Seconds to wait between requests (avoid IP blocks)
-            max_images: Maximum number of images to download per product (default: 10)
+            max_images: Maximum number of images to download per product (default: 3)
             max_videos: Maximum number of videos to download per product (default: 1)
         """
         self.output_dir = Path(output_dir)
@@ -270,16 +270,23 @@ class AmazonProductScraper:
             r'sponsored-products',  # Sponsored section
             r'also-viewed',  # "Customers also viewed" section
             r'frequently-bought',  # Frequently bought together
+            r'__AC_SY\d+',  # System images (often related products)
+            r'__AC_SX\d+',  # System images (often related products)
+            r'__AC_SZ\d+',  # System images (often related products)
+            r'__AC_SS\d+',  # Search/system images
         ]
         
-        # Allowed patterns for main product images (more flexible)
-        allowed_patterns = [
-            r'\.media-amazon\.com/images/I/[A-Za-z0-9+/=_-]+\._AC_SL\d+_\.jpg',  # Main product images with _AC_SL
-            r'\.media-amazon\.com/images/I/[A-Za-z0-9+/=_-]+\._AC_UF\d+',  # Some product images use _AC_UF
-            r'\.media-amazon\.com/images/I/[A-Za-z0-9+/=_-]+\._AC_SY\d+',  # Some product images use _AC_SY
-            r'\.media-amazon\.com/images/I/[A-Za-z0-9+/=_-]+\.jpg',  # Basic product image format
+        # STRICT: Only allow _AC_SL patterns (main product images)
+        # These are the standard product image patterns used by Amazon for main product photos
+        main_product_patterns = [
+            r'\._AC_SL1500_\.jpg',  # High resolution main product images
+            r'\._AC_SL1000_\.jpg',  # Medium-high resolution
+            r'\._AC_SL750_\.jpg',   # Medium resolution
+            r'\._AC_SL500_\.jpg',   # Lower resolution (but still main product)
         ]
         
+        # STRICT: Only allow main product images with _AC_SL pattern
+        # This ensures we only get actual product photos, not related items
         for url in image_urls:
             # Normalize URL - extract only the actual URL part (before any JSON continuation)
             # URLs might have JSON data attached like: "url.jpg","other":"data"
@@ -301,20 +308,41 @@ class AmazonProductScraper:
             if not re.search(r'\.media-amazon\.com/images/I/', url, re.IGNORECASE):
                 continue
             
-            # Check if it matches allowed patterns (more lenient)
-            is_main_product_image = any(re.search(pattern, url, re.IGNORECASE) for pattern in allowed_patterns)
+            # STRICT: Only accept _AC_SL patterns (main product images)
+            # These are the standard Amazon product image patterns
+            is_main_product_image = any(re.search(pattern, url, re.IGNORECASE) for pattern in main_product_patterns)
             
             if url.startswith('https://') and '.jpg' in url.lower() and is_main_product_image:
                 # Validate it's a clean URL (no JSON artifacts)
                 if '"' not in url and '{' not in url and '}' not in url:
-                    # Try to get high-res version
+                    # Always upgrade to highest resolution (SL1500)
                     if '._AC_SL' in url:
-                        # Replace resolution suffix with highest available
                         url = re.sub(r'_AC_SL\d+_', '_AC_SL1500_', url)
                     clean_urls.add(url)
         
-        logger.info(f"Found {len(clean_urls)} unique image URLs for ASIN {asin} (target product only)")
-        return list(clean_urls)
+        # Sort URLs to prioritize higher resolution images
+        # Convert to list and sort by resolution (SL1500 first, then SL1000, etc.)
+        clean_urls_list = list(clean_urls)
+        def get_resolution_priority(url):
+            """Returns priority number - lower is better (SL1500 = 0, SL1000 = 1, etc.)"""
+            if '_AC_SL1500_' in url:
+                return 0
+            elif '_AC_SL1000_' in url:
+                return 1
+            elif '_AC_SL750_' in url:
+                return 2
+            elif '_AC_SL500_' in url:
+                return 3
+            else:
+                return 999
+        
+        clean_urls_list.sort(key=get_resolution_priority)
+        
+        # Return only the best images (prioritized by resolution)
+        # Limit to max_images at this stage
+        final_urls = clean_urls_list[:self.max_images] if hasattr(self, 'max_images') else clean_urls_list[:3]
+        logger.info(f"Found {len(clean_urls_list)} unique image URLs for ASIN {asin}, selecting top {len(final_urls)} (main product only)")
+        return final_urls
     
     def extract_video_urls_from_html(self, html: str) -> List[str]:
         """
@@ -456,17 +484,31 @@ class AmazonProductScraper:
         product_dir = self.output_dir / asin
         product_dir.mkdir(exist_ok=True)
         
-        # Fetch product page
+        # Try to fetch product page (may fail due to bot detection)
         html = self.get_product_page(product.get('url', ''))
-        if not html:
-            result['errors'].append('Failed to fetch product page')
-            return result
+        image_urls = []
         
-        # Extract and download images (limited to max_images)
-        image_urls = self.extract_image_urls_from_html(html, asin)
-        # Limit to max_images
+        if html:
+            # Extract and download images (already limited to max_images in extract method)
+            image_urls = self.extract_image_urls_from_html(html, asin)
+        else:
+            result['errors'].append('Failed to fetch product page (will try fallback)')
+        
+        # Fallback: If no images found from HTML scraping, use image_url from product data
+        # This ensures we always get at least 1 image if available in JSON
+        if len(image_urls) == 0 and product.get('image_url'):
+            fallback_url = product.get('image_url')
+            # Validate it's a main product image pattern
+            if re.search(r'\._AC_SL\d+_\.jpg', fallback_url, re.IGNORECASE):
+                # Upgrade to high resolution
+                if '._AC_SL' in fallback_url:
+                    fallback_url = re.sub(r'_AC_SL\d+_', '_AC_SL1500_', fallback_url)
+                image_urls.append(fallback_url)
+                logger.info(f"Using fallback image_url from product data for {asin}")
+        
+        # Additional safety limit (should already be limited by extract method)
         image_urls = image_urls[:self.max_images]
-        logger.info(f"Downloading up to {len(image_urls)} images for {asin}")
+        logger.info(f"Downloading up to {len(image_urls)} main product images for {asin}")
         
         for idx, img_url in enumerate(image_urls, 1):
             # Stop if we've reached max_images
@@ -482,9 +524,12 @@ class AmazonProductScraper:
                 result['errors'].append(f"Image {idx} error: {str(e)}")
         
         # Extract and download videos (limited to max_videos, default: 1)
-        video_urls = self.extract_video_urls_from_html(html)
-        # Limit to max_videos
-        video_urls = video_urls[:self.max_videos]
+        # Only extract videos if we have HTML (may be None if page fetch failed)
+        video_urls = []
+        if html:
+            video_urls = self.extract_video_urls_from_html(html)
+            # Limit to max_videos
+            video_urls = video_urls[:self.max_videos]
         logger.info(f"Downloading up to {len(video_urls)} videos for {asin}")
         
         for idx, video_url in enumerate(video_urls, 1):
@@ -635,8 +680,8 @@ def main():
     parser.add_argument(
         '--max-images',
         type=int,
-        default=10,
-        help='Maximum number of images to download per product (default: 10)'
+        default=3,
+        help='Maximum number of images to download per product (default: 3)'
     )
     parser.add_argument(
         '--max-videos',

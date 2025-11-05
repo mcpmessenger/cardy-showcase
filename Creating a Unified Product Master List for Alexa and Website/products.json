@@ -1,0 +1,44 @@
+[
+  {
+    "product_id": "tubby-smart-collar-v1",
+    "name": "TubbyAI Smart Pet Collar",
+    "short_name": "smart collar",
+    "description": "A GPS and activity tracking collar for your pet, integrated with the TubbyAI ecosystem. Durable and waterproof.",
+    "voice_description": "The TubbyAI Smart Pet Collar, perfect for tracking your furry friend's adventures.",
+    "price": 49.99,
+    "currency": "USD",
+    "affiliate_url": "https://www.amazon.com/dp/B0XXXXXXXXX?tag=yourtag-20",
+    "image_url": "https://d1.awsstatic.com/TubbyAI/collar-image.png",
+    "category": "Pet Wearables",
+    "rating": 4.5,
+    "is_available": true
+  },
+  {
+    "product_id": "tubby-feeder-v2",
+    "name": "TubbyAI Smart Pet Feeder (v2)",
+    "short_name": "smart feeder",
+    "description": "The ultimate solution for automated pet feeding, featuring a built-in camera and portion control.",
+    "voice_description": "The latest TubbyAI smart pet feeder, perfect for keeping your furry friend on a schedule.",
+    "price": 99.99,
+    "currency": "USD",
+    "affiliate_url": "https://www.amazon.com/dp/B0YYYYYYYYY?tag=yourtag-20",
+    "image_url": "https://d1.awsstatic.com/TubbyAI/feeder-v2-image.png",
+    "category": "Pet Feeding",
+    "rating": 4.8,
+    "is_available": true
+  },
+  {
+    "product_id": "tubby-toy-laser",
+    "name": "TubbyAI Automatic Laser Toy",
+    "short_name": "laser toy",
+    "description": "An interactive, automatic laser pointer toy to keep your cat entertained for hours. USB rechargeable.",
+    "voice_description": "A fun, automatic laser toy for your cat.",
+    "price": 24.50,
+    "currency": "USD",
+    "affiliate_url": "https://www.amazon.com/dp/B0ZZZZZZZZZ?tag=yourtag-20",
+    "image_url": "https://d1.awsstatic.com/TubbyAI/laser-toy-image.png",
+    "category": "Pet Toys",
+    "rating": 4.2,
+    "is_available": false
+  }
+]

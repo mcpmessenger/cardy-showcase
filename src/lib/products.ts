@@ -1,14 +1,65 @@
 import productsData from "../../products-simple.json";
 import type { Product } from "@/types/product";
+import {
+  getAvailableUnifiedProducts,
+  unifiedProductsToProducts,
+  clearProductCache,
+} from "./unified-products";
 
-export const products: Product[] = productsData as Product[];
+// Local products fallback
+export const localProducts: Product[] = productsData as Product[];
+
+// Products array - can be populated from unified master list or local fallback
+// Export for backward compatibility - use getProducts() for new code
+export let products: Product[] = localProducts;
+
+/**
+ * Initialize products from unified master list if available
+ * Falls back to local products if fetch fails
+ */
+export async function initializeProducts(): Promise<Product[]> {
+  try {
+    const unifiedProducts = await getAvailableUnifiedProducts();
+    if (unifiedProducts.length > 0) {
+      products = unifiedProductsToProducts(unifiedProducts);
+      console.log(`Loaded ${products.length} products from unified master list`);
+      return products;
+    }
+  } catch (error) {
+    console.warn("Failed to load unified products, using local fallback:", error);
+  }
+  
+  // Fallback to local products
+  products = localProducts;
+  return products;
+}
+
+/**
+ * Get current products (from unified list or local fallback)
+ */
+export function getProducts(): Product[] {
+  return products;
+}
+
+/**
+ * Refresh products from the unified master list
+ */
+export async function refreshProducts(): Promise<Product[]> {
+  clearProductCache();
+  return initializeProducts();
+}
+
+// Auto-initialize on module load (non-blocking)
+if (typeof window !== "undefined") {
+  initializeProducts().catch(console.error);
+}
 
 /**
  * Get featured products (products with "Best Seller", "Amazon's Choice", or "Premium Pick" badges)
  */
 export function getFeaturedProducts(limit: number = 8): Product[] {
   const featuredBadges = ["Best Seller", "Amazon's Choice", "Premium Pick", "Top Rated"];
-  return products
+  return getProducts()
     .filter((product) => product.badge && featuredBadges.includes(product.badge))
     .slice(0, limit);
 }
@@ -19,7 +70,7 @@ export function getFeaturedProducts(limit: number = 8): Product[] {
  * As we add more local images, the carousel will expand automatically
  */
 export function getProductsWithPhotos(): Product[] {
-  return products.filter((product) => {
+  return getProducts().filter((product) => {
     // Only return products with local images
     return product.local_images && product.local_images.length > 0;
   });
@@ -29,14 +80,14 @@ export function getProductsWithPhotos(): Product[] {
  * Get products by category
  */
 export function getProductsByCategory(category: string): Product[] {
-  return products.filter((product) => product.category === category);
+  return getProducts().filter((product) => product.category === category);
 }
 
 /**
  * Get products by subcategory
  */
 export function getProductsBySubcategory(subcategory: string): Product[] {
-  return products.filter((product) => product.subcategory === subcategory);
+  return getProducts().filter((product) => product.subcategory === subcategory);
 }
 
 /**
@@ -45,7 +96,7 @@ export function getProductsBySubcategory(subcategory: string): Product[] {
 export function getCategoriesWithCounts(): Array<{ name: string; count: number; displayName: string }> {
   const categoryMap = new Map<string, number>();
   
-  products.forEach((product) => {
+  getProducts().forEach((product) => {
     const count = categoryMap.get(product.category) || 0;
     categoryMap.set(product.category, count + 1);
   });
@@ -77,7 +128,7 @@ export function getCategoriesWithCounts(): Array<{ name: string; count: number; 
  */
 export function searchProducts(query: string): Product[] {
   const lowerQuery = query.toLowerCase();
-  return products.filter(
+  return getProducts().filter(
     (product) =>
       product.name.toLowerCase().includes(lowerQuery) ||
       product.description.toLowerCase().includes(lowerQuery)
