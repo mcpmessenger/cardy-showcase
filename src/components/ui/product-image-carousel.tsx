@@ -120,25 +120,27 @@ export function ProductImageCarousel({
           let imageUrl: string;
           
           if (img.startsWith('product_media/')) {
-            // Local image from public folder - use FULL absolute URL to prevent routing issues
-            // Create absolute URL from origin root to bypass React Router path resolution
-            const cleanPath = `/${img.replace(/^\/+/, '')}`;
-            imageUrl = new URL(cleanPath, window.location.origin).href;
+            // Try S3 first, then fall back to local
+            // Images are now hosted on S3 for better reliability
+            const s3BaseUrl = 'https://tubbyai-products-catalog.s3.amazonaws.com';
+            const cleanPath = img.replace(/^\/+/, '');
+            imageUrl = `${s3BaseUrl}/${cleanPath}`;
           } else if (img.startsWith('http://') || img.startsWith('https://')) {
-            // Direct HTTP URL (Amazon images)
+            // Direct HTTP URL (Amazon images or already S3 URLs)
             imageUrl = img;
           } else if (img.startsWith('/')) {
-            // Already absolute path - convert to full URL to prevent routing issues
-            imageUrl = new URL(img, window.location.origin).href;
+            // Absolute path - check if it's product_media, use S3
+            if (img.startsWith('/product_media/')) {
+              const cleanPath = img.replace(/^\/+/, '');
+              imageUrl = `https://tubbyai-products-catalog.s3.amazonaws.com/${cleanPath}`;
+            } else {
+              // Other absolute paths - use full URL
+              imageUrl = new URL(img, window.location.origin).href;
+            }
           } else {
-            // Relative path - convert to full absolute URL from root
-            const cleanPath = `/${img.replace(/^\/+/, '')}`;
-            imageUrl = new URL(cleanPath, window.location.origin).href;
-          }
-          
-          // Final safety check: ensure no /products/ prefix in the URL
-          if (imageUrl.includes('/products/product_media/')) {
-            imageUrl = imageUrl.replace('/products/product_media/', '/product_media/');
+            // Relative path - assume product_media and use S3
+            const cleanPath = img.replace(/^\/+/, '');
+            imageUrl = `https://tubbyai-products-catalog.s3.amazonaws.com/${cleanPath}`;
           }
           
           return (
@@ -165,20 +167,35 @@ export function ProductImageCarousel({
                     locationPath: window.location.pathname
                   });
                   
+                  // Try local path as fallback if S3 URL failed
+                  if (currentSrc.includes('tubbyai-products-catalog.s3.amazonaws.com')) {
+                    // S3 URL failed, try local path
+                    const localPath = img.startsWith('/') ? img : `/${img}`;
+                    const localUrl = new URL(localPath, window.location.origin).href;
+                    console.log(`  → S3 failed, trying local path: ${localUrl}`);
+                    e.currentTarget.src = localUrl;
+                    return;
+                  }
+                  
                   // Check if the issue is path resolution (currentSrc includes /products/)
                   if (currentSrc.includes('/products/product_media/')) {
-                    // Fix: use absolute URL from origin root
-                    const fixedUrl = new URL(imageUrl, window.location.origin).href;
-                    console.log(`  → Fixing path resolution: ${fixedUrl}`);
-                    e.currentTarget.src = fixedUrl;
+                    // Fix: use S3 URL
+                    const s3Url = `https://tubbyai-products-catalog.s3.amazonaws.com/${img.replace(/^\/+/, '')}`;
+                    console.log(`  → Fixing path resolution with S3: ${s3Url}`);
+                    e.currentTarget.src = s3Url;
                     return;
                   }
                   
                   // Try fallback to image_url if not already using it
                   if (imageUrl !== product.image_url && product.image_url && !currentSrc.includes(product.image_url)) {
-                    const fallbackUrl = product.image_url.startsWith('http') 
-                      ? product.image_url 
-                      : new URL(product.image_url, window.location.origin).href;
+                    // Convert image_url to S3 if it's a local path
+                    let fallbackUrl = product.image_url;
+                    if (fallbackUrl.startsWith('product_media/') || fallbackUrl.startsWith('/product_media/')) {
+                      const cleanPath = fallbackUrl.replace(/^\/+/, '');
+                      fallbackUrl = `https://tubbyai-products-catalog.s3.amazonaws.com/${cleanPath}`;
+                    } else if (!fallbackUrl.startsWith('http')) {
+                      fallbackUrl = new URL(fallbackUrl, window.location.origin).href;
+                    }
                     console.log(`  → Trying fallback image_url: ${fallbackUrl}`);
                     e.currentTarget.src = fallbackUrl;
                   } else {
