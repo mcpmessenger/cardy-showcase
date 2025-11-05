@@ -120,24 +120,25 @@ export function ProductImageCarousel({
           let imageUrl: string;
           
           if (img.startsWith('product_media/')) {
-            // Local image from public folder - ensure absolute path from root
-            // Use absolute URL to prevent relative path resolution issues
-            imageUrl = new URL(`/${img.replace(/^\/+/, '')}`, window.location.origin).pathname;
+            // Local image from public folder - use FULL absolute URL to prevent routing issues
+            // Create absolute URL from origin root to bypass React Router path resolution
+            const cleanPath = `/${img.replace(/^\/+/, '')}`;
+            imageUrl = new URL(cleanPath, window.location.origin).href;
           } else if (img.startsWith('http://') || img.startsWith('https://')) {
             // Direct HTTP URL (Amazon images)
             imageUrl = img;
           } else if (img.startsWith('/')) {
-            // Already absolute path - ensure it's from root by using URL constructor
-            imageUrl = new URL(img, window.location.origin).pathname;
+            // Already absolute path - convert to full URL to prevent routing issues
+            imageUrl = new URL(img, window.location.origin).href;
           } else {
-            // Relative path - convert to absolute from root
-            imageUrl = new URL(`/${img.replace(/^\/+/, '')}`, window.location.origin).pathname;
+            // Relative path - convert to full absolute URL from root
+            const cleanPath = `/${img.replace(/^\/+/, '')}`;
+            imageUrl = new URL(cleanPath, window.location.origin).href;
           }
           
-          // Final check: ensure the path is absolute and doesn't include route prefixes
-          if (imageUrl.startsWith('/product_media/') && !imageUrl.startsWith('http')) {
-            // Ensure it's a clean absolute path from site root (no /products/ prefix)
-            imageUrl = imageUrl.replace(/^\/products\/product_media\//, '/product_media/');
+          // Final safety check: ensure no /products/ prefix in the URL
+          if (imageUrl.includes('/products/product_media/')) {
+            imageUrl = imageUrl.replace('/products/product_media/', '/product_media/');
           }
           
           return (
