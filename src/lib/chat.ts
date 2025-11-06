@@ -2,7 +2,7 @@
  * Chat service for communicating with backend chat endpoint
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://tubbyai-production.eba-pcqnhqe4.us-east-1.elasticbeanstalk.com';
+import { API_BASE_URL } from "@/lib/config";
 
 export interface ChatMessage {
   role: 'user' | 'assistant';

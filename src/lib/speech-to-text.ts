@@ -1,25 +1,21 @@
 /**
- * Speech-to-Text service using OpenAI Whisper API
+ * Speech-to-Text service using backend STT endpoint (MCP-STT/Whisper)
  * Handles audio recording and transcription
  */
 
+import { API_BASE_URL } from "@/lib/config";
+
 interface SpeechToTextOptions {
-  apiKey: string;
   language?: string;
-  model?: string;
 }
 
 export class SpeechToTextService {
-  private apiKey: string;
   private language: string;
-  private model: string;
   private mediaRecorder: MediaRecorder | null = null;
   private audioChunks: Blob[] = [];
 
-  constructor(options: SpeechToTextOptions) {
-    this.apiKey = options.apiKey;
-    this.language = options.language || 'en';
-    this.model = options.model || 'whisper-1';
+  constructor(options?: SpeechToTextOptions) {
+    this.language = options?.language || 'en';
   }
 
   /**
@@ -70,33 +66,38 @@ export class SpeechToTextService {
   }
 
   /**
-   * Transcribe audio using OpenAI Whisper API
+   * Transcribe audio using backend STT endpoint
    */
   async transcribe(audioBlob: Blob): Promise<string> {
     try {
-      // Convert audio blob to the format OpenAI expects
       const formData = new FormData();
-      formData.append('file', audioBlob, 'audio.webm');
-      formData.append('model', this.model);
-      if (this.language) {
-        formData.append('language', this.language);
-      }
+      formData.append('audio_file', audioBlob, 'audio.webm');
 
-      const response = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+      const response = await fetch(`${API_BASE_URL}/api/stt/transcribe`, {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${this.apiKey}`,
-        },
         body: formData,
       });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.error?.message || `API error: ${response.status}`);
+        throw new Error(errorData.detail || `STT API error: ${response.status}`);
       }
 
       const data = await response.json();
-      return data.text.trim();
+      const transcript = data.text.trim();
+      
+      // Validate transcript - warn if it's suspiciously short
+      if (transcript.length === 0) {
+        throw new Error('No transcription received. Please try speaking again.');
+      }
+      
+      // Check if transcript is just punctuation (likely error)
+      if (transcript.length === 1 && /[.,!?;:]/.test(transcript)) {
+        console.warn('Transcription may be incorrect - received only punctuation:', transcript);
+        throw new Error('Transcription failed - detected only punctuation. Please speak more clearly and try again.');
+      }
+      
+      return transcript;
     } catch (error) {
       console.error('Error transcribing audio:', error);
       throw error;
@@ -141,9 +142,9 @@ export class SpeechToTextService {
 }
 
 /**
- * Create a singleton instance (will be initialized with API key from env)
+ * Create a singleton instance
  */
-export function createSpeechToTextService(apiKey: string): SpeechToTextService {
-  return new SpeechToTextService({ apiKey });
+export function createSpeechToTextService(options?: SpeechToTextOptions): SpeechToTextService {
+  return new SpeechToTextService(options);
 }
 

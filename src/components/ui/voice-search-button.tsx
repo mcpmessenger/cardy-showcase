@@ -18,13 +18,10 @@ export function VoiceSearchButton({ onTranscription, className }: VoiceSearchBut
   const [recordingTime, setRecordingTime] = useState(0);
 
   useEffect(() => {
-    // Initialize speech service with API key from environment
-    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
-    if (apiKey) {
-      speechServiceRef.current = createSpeechToTextService(apiKey);
-    } else {
-      console.error('OpenAI API key not found in environment variables');
-    }
+    speechServiceRef.current = createSpeechToTextService();
+    return () => {
+      speechServiceRef.current = null;
+    };
   }, []);
 
   useEffect(() => {
@@ -41,7 +38,7 @@ export function VoiceSearchButton({ onTranscription, className }: VoiceSearchBut
 
   const handleStartRecording = async () => {
     if (!speechServiceRef.current) {
-      toast.error('Voice search is not available. Please check API configuration.');
+      toast.error('Voice search is not available right now. Please try again later.');
       return;
     }
 
