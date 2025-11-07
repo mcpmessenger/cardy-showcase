@@ -10,10 +10,11 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     openai_project_id: str = ""
     anthropic_api_key: str = ""
+    anthropic_model: str = "claude-3-haiku-20240307"
     google_api_key: str = ""
     llm_model: str = "gpt-4"
     llm_provider: str = "openai"
-    gemini_model: str = "gemini-1.5-flash"
+    gemini_model: str = "gemini-pro"
     
     # Eleven Labs
     eleven_labs_api_key: str = ""
@@ -29,6 +30,7 @@ class Settings(BaseSettings):
     
     # Product Catalog
     product_catalog_url: str = "https://tubbyai-products-catalog.s3.amazonaws.com/unified-products-master.json"
+    product_media_base_url: str = "https://tubbyai-products-catalog.s3.amazonaws.com/"
     
     # Server Configuration
     backend_host: str = "0.0.0.0"
@@ -53,6 +55,8 @@ class Settings(BaseSettings):
             self.openai_project_id = self.openai_project_id.strip()
         if self.anthropic_api_key:
             self.anthropic_api_key = self.anthropic_api_key.strip()
+        if self.anthropic_model:
+            self.anthropic_model = self.anthropic_model.strip()
         if self.google_api_key:
             self.google_api_key = self.google_api_key.strip()
         if self.eleven_labs_api_key:
@@ -61,6 +65,10 @@ class Settings(BaseSettings):
             self.llm_provider = self.llm_provider.strip()
         if self.gemini_model:
             self.gemini_model = self.gemini_model.strip()
+        if self.product_catalog_url:
+            self.product_catalog_url = self.product_catalog_url.strip()
+        if self.product_media_base_url:
+            self.product_media_base_url = self.product_media_base_url.strip()
 
 
 settings = Settings()

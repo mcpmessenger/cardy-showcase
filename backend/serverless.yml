@@ -1,0 +1,55 @@
+# Serverless Framework configuration for AWS Lambda deployment
+# Install: npm install -g serverless
+# Deploy: serverless deploy
+
+service: tubbyai-backend
+
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: us-east-1
+  memorySize: 512
+  timeout: 30
+  environment:
+    OPENAI_API_KEY: ${env:OPENAI_API_KEY}
+    ELEVEN_LABS_API_KEY: ${env:ELEVEN_LABS_API_KEY}
+    ELEVEN_LABS_VOICE_ID: ${env:ELEVEN_LABS_VOICE_ID, ''}
+    CORS_ORIGINS: ${env:CORS_ORIGINS, ''}
+    PRODUCT_CATALOG_URL: ${env:PRODUCT_CATALOG_URL, 'https://tubbyai-products-catalog.s3.amazonaws.com/unified-products-master.json'}
+    PRODUCT_MEDIA_BASE_URL: ${env:PRODUCT_MEDIA_BASE_URL, 'https://tubbyai-products-catalog.s3.amazonaws.com/'}
+  httpApi:
+    cors:
+      allowedOrigins:
+        - ${env:FRONTEND_URL, '*'}
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - OPTIONS
+      allowedHeaders:
+        - '*'
+
+functions:
+  api:
+    handler: app.main.handler
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: ANY
+      - httpApi:
+          path: /
+          method: ANY
+
+package:
+  patterns:
+    - '!venv/**'
+    - '!**/__pycache__/**'
+    - '!**/*.pyc'
+    - '!node_modules/**'
+    - '!dist/**'
+    - '!*.log'
+    - '!**/*.log'
+
