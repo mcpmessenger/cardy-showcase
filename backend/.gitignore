@@ -1,0 +1,13 @@
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Local environment and build artifacts
+venv/
+.lambda_build/
+.serverless/
+lambda_package.zip
+*.zip
+.env

@@ -31,3 +31,7 @@ public/product_media/**/*.jpg
 public/product_media/**/*.jpeg
 public/product_media/**/*.png
 public/product_media/**/*.webp
+
+# Environment files
+.env
+backend/.env
