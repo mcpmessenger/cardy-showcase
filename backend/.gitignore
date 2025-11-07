@@ -11,3 +11,5 @@ venv/
 lambda_package.zip
 *.zip
 .env
+layers/
+temp_wheels/

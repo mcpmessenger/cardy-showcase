@@ -33,9 +33,18 @@ provider:
       allowedHeaders:
         - '*'
 
+layers:
+  dependencies:
+    path: layers
+    name: ${self:service}-${sls:stage}-dependencies
+    compatibleRuntimes:
+      - python3.11
+
 functions:
   api:
     handler: app.main.handler
+    layers:
+      - {Ref: DependenciesLambdaLayer}
     events:
       - httpApi:
           path: /{proxy+}
