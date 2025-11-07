@@ -253,14 +253,28 @@ export function VoiceChat({ className }: VoiceChatProps) {
               {/* Display product images if available */}
               {message.products && message.products.length > 0 && (
                 <div className="mt-3 space-y-2">
-                  {message.products.map((product, idx) => (
-                    <a
-                      key={product.product_id || idx}
-                      href={product.product_url || product.url || product.link || '#'}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex gap-3 items-start border rounded-lg p-2 bg-background transition-colors hover:bg-muted"
-                    >
+                  {message.products.map((product, idx) => {
+                    const productLink =
+                      product.affiliate_url ||
+                      product.product_url ||
+                      product.external_url ||
+                      product.url ||
+                      product.link ||
+                      '#';
+
+                    return (
+                      <a
+                        key={product.product_id || idx}
+                        href={productLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex gap-3 items-start border rounded-lg p-2 bg-background transition-colors hover:bg-muted"
+                        onClick={(event) => {
+                          if (productLink === '#') {
+                            event.preventDefault();
+                          }
+                        }}
+                      >
                       <img
                         src={getProductImageUrl(product)}
                         alt={product.name || product.short_name || 'Product'}
@@ -280,8 +294,9 @@ export function VoiceChat({ className }: VoiceChatProps) {
                           </p>
                         )}
                       </div>
-                    </a>
-                  ))}
+                      </a>
+                    );
+                  })}
                 </div>
               )}
               
