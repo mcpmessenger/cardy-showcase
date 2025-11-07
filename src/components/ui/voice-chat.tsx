@@ -28,6 +28,17 @@ export function VoiceChat({ className }: VoiceChatProps) {
   const ttsService = useRef(new TextToSpeechService({ voiceId: DEFAULT_VOICE_ID })).current;
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  const sanitizeAssistantContent = (content: string) => {
+    if (!content) return content;
+
+    let sanitized = content;
+    sanitized = sanitized.replace(/\[!\[[^\]]*\]\([^\)]+\)\]\([^\)]+\)/g, "");
+    sanitized = sanitized.replace(/!\[[^\]]*\]\([^\)]+\)/g, "");
+    sanitized = sanitized.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, "$1");
+    sanitized = sanitized.replace(/\s{2,}/g, " ");
+    return sanitized.trim();
+  };
+
   // Update TTS service when voice changes
   useEffect(() => {
     ttsService.setVoiceId(selectedVoiceId);
@@ -98,9 +109,11 @@ export function VoiceChat({ className }: VoiceChatProps) {
       }
 
       // Add assistant message
+      const assistantContent = sanitizeAssistantContent(response.text);
+
       const assistantMessage: ChatMessage = {
         role: 'assistant',
-        content: response.text,
+        content: assistantContent,
         timestamp: new Date(),
         products: response.products,
       };
@@ -113,7 +126,7 @@ export function VoiceChat({ className }: VoiceChatProps) {
         if (elevenLabsVoiceId) {
           ttsService.setVoiceId(elevenLabsVoiceId);
         }
-        await ttsService.synthesizeAndPlay(response.text);
+        await ttsService.synthesizeAndPlay(assistantContent);
       } catch (ttsError) {
         console.warn('TTS playback failed:', ttsError);
         // Continue even if TTS fails
@@ -156,9 +169,11 @@ export function VoiceChat({ className }: VoiceChatProps) {
         setConversationId(response.conversation_id);
       }
 
+      const assistantContent = sanitizeAssistantContent(response.text);
+
       const assistantMessage: ChatMessage = {
         role: 'assistant',
-        content: response.text,
+        content: assistantContent,
         timestamp: new Date(),
         products: response.products,
       };
@@ -171,7 +186,7 @@ export function VoiceChat({ className }: VoiceChatProps) {
         if (elevenLabsVoiceId) {
           ttsService.setVoiceId(elevenLabsVoiceId);
         }
-        await ttsService.synthesizeAndPlay(response.text);
+        await ttsService.synthesizeAndPlay(assistantContent);
       } catch (ttsError) {
         console.warn('TTS playback failed:', ttsError);
       }
@@ -239,7 +254,13 @@ export function VoiceChat({ className }: VoiceChatProps) {
               {message.products && message.products.length > 0 && (
                 <div className="mt-3 space-y-2">
                   {message.products.map((product, idx) => (
-                    <div key={product.product_id || idx} className="flex gap-3 items-start border rounded-lg p-2 bg-background">
+                    <a
+                      key={product.product_id || idx}
+                      href={product.product_url || product.url || product.link || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex gap-3 items-start border rounded-lg p-2 bg-background transition-colors hover:bg-muted"
+                    >
                       <img
                         src={getProductImageUrl(product)}
                         alt={product.name || product.short_name || 'Product'}
@@ -249,7 +270,9 @@ export function VoiceChat({ className }: VoiceChatProps) {
                         }}
                       />
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium truncate">{product.name || product.short_name}</p>
+                        <p className="text-sm font-medium truncate underline-offset-2 group-hover:underline">
+                          {product.name || product.short_name || 'View product'}
+                        </p>
                         <p className="text-xs text-muted-foreground">${product.price?.toFixed(2)}</p>
                         {product.rating && (
                           <p className="text-xs text-muted-foreground">
@@ -257,7 +280,7 @@ export function VoiceChat({ className }: VoiceChatProps) {
                           </p>
                         )}
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               )}
