@@ -40,7 +40,9 @@ class Settings(BaseSettings):
     @property
     def cors_origins_list(self) -> List[str]:
         """Parse CORS origins into list."""
-        return [origin.strip() for origin in self.cors_origins.split(",")]
+        origins = [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
+        # Allow all origins if none provided
+        return origins or ["*"]
     
     class Config:
         env_file = ".env"

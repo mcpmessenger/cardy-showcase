@@ -16,7 +16,7 @@ provider:
     OPENAI_API_KEY: ${env:OPENAI_API_KEY}
     ELEVEN_LABS_API_KEY: ${env:ELEVEN_LABS_API_KEY}
     ELEVEN_LABS_VOICE_ID: ${env:ELEVEN_LABS_VOICE_ID, ''}
-    CORS_ORIGINS: ${env:CORS_ORIGINS, ''}
+    CORS_ORIGINS: ${env:CORS_ORIGINS, '*'}
     PRODUCT_CATALOG_URL: ${env:PRODUCT_CATALOG_URL, 'https://tubbyai-products-catalog.s3.amazonaws.com/unified-products-master.json'}
     PRODUCT_MEDIA_BASE_URL: ${env:PRODUCT_MEDIA_BASE_URL, 'https://tubbyai-products-catalog.s3.amazonaws.com/'}
   httpApi:
