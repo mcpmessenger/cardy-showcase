@@ -39,3 +39,15 @@ backend/.env.local
 backend/.env.prod
 backend/.env.dev
 backend/lambda-env.json
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/venv/
+backend/lambda_layer/
+backend/lambda*.zip
+backend/*.zip
+!backend/requirements.txt
