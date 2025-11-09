@@ -33,11 +33,11 @@ class APIKeyManager:
         # Patterns to detect API key setting
         patterns = [
             # "set openai key to sk-..."
-            r"(?:set|update|configure|add)\s+(?:my\s+)?(openai|eleven.?labs|anthropic|google|grokipedia)\s+(?:api\s+)?key\s+(?:to|as|is)?\s+(sk-[\w\-]+|[\w\-]{20,})",
+            r"(?:set|update|configure|add)\s+(?:my\s+)?(openai|eleven.?labs|anthropic|google|grokipedia|alpha\s+vantage|polymarket)\s+(?:api\s+)?key\s+(?:to|as|is)?\s+(sk-[\w\-]+|[\w\-]{4,})",
             # "my openai key is sk-..."
-            r"(?:my\s+)?(openai|eleven.?labs|anthropic|google|grokipedia)\s+(?:api\s+)?key\s+(?:is|:)\s+(sk-[\w\-]+|[\w\-]{20,})",
+            r"(?:my\s+)?(openai|eleven.?labs|anthropic|google|grokipedia|alpha\s+vantage|polymarket)\s+(?:api\s+)?key\s+(?:is|:)\s+(sk-[\w\-]+|[\w\-]{4,})",
             # "openai key: sk-..."
-            r"(openai|eleven.?labs|anthropic|google|grokipedia)\s+(?:api\s+)?key\s*[:=]\s*(sk-[\w\-]+|[\w\-]{20,})",
+            r"(openai|eleven.?labs|anthropic|google|grokipedia|alpha\s+vantage|polymarket)\s+(?:api\s+)?key\s*[:=]\s*(sk-[\w\-]+|[\w\-]{4,})",
         ]
         
         for pattern in patterns:
@@ -51,7 +51,9 @@ class APIKeyManager:
                     'eleven labs': 'eleven_labs',
                     'anthropic': 'anthropic',
                     'google': 'google',
-                    'grokipedia': 'grokipedia'
+                    'grokipedia': 'grokipedia',
+                    'alpha vantage': 'alpha_vantage',
+                    'polymarket': 'polymarket'
                 }
                 service = service_map.get(service, service)
                 
@@ -166,6 +168,16 @@ class APIKeyManager:
         elif service == 'anthropic':
             if not key.startswith('sk-ant-'):
                 return False, "Anthropic key should start with 'sk-ant-'"
+
+        elif service == 'alpha_vantage':
+            # Alpha Vantage keys are typically 16 alphanumeric chars but allow the demo key
+            if key.lower() != 'demo' and len(key) < 8:
+                return False, "Alpha Vantage key appears too short"
+
+        elif service == 'polymarket':
+            # Polymarket API tokens vary; ensure reasonable length
+            if len(key) < 10:
+                return False, "Polymarket key appears too short"
         
         return True, ""
     
@@ -188,7 +200,9 @@ class APIKeyManager:
                 'eleven_labs': 'ELEVEN_LABS_API_KEY',
                 'anthropic': 'ANTHROPIC_API_KEY',
                 'google': 'GOOGLE_API_KEY',
-                'grokipedia': 'GROKIPEDIA_API_KEY'
+                'grokipedia': 'GROKIPEDIA_API_KEY',
+                'alpha_vantage': 'ALPHA_VANTAGE_API_KEY',
+                'polymarket': 'POLYMARKET_API_KEY'
             }
             
             env_var = env_var_map.get(service)
@@ -228,6 +242,8 @@ class APIKeyManager:
             'anthropic': bool(settings.anthropic_api_key),
             'google': bool(settings.google_api_key),
             'grokipedia': bool(settings.grokipedia_api_key),
+            'alpha_vantage': bool(settings.alpha_vantage_api_key),
+            'polymarket': bool(settings.polymarket_api_key),
             'provider': settings.llm_provider or 'openai'
         }
 

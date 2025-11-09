@@ -1,6 +1,8 @@
 """Configuration and environment variables."""
-from pydantic_settings import BaseSettings
+from pathlib import Path
 from typing import List
+
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
@@ -19,11 +21,22 @@ class Settings(BaseSettings):
     # Eleven Labs
     eleven_labs_api_key: str = ""
     eleven_labs_voice_id: str = ""
+    enable_eleven_labs: bool = False
     
     # Grokipedia
     grokipedia_api_key: str = ""
+    grokipedia_api_base_url: str = "https://api.x.ai/v1/grokipedia/search"
+    grokipedia_timeout: int = 20
+
+    # Financial & Market Data
+    alpha_vantage_api_key: str = ""
+    polymarket_api_key: str = ""
+    alpha_vantage_timeout: int = 20
+    polymarket_timeout: int = 20
+    tts_prefer_gtts: bool = True
+    enable_mcp_stt: bool = False
     
-    # MCP Configuration
+    # MCP Configuration (used for STT/TTS fallbacks)
     mcp_stt_service: str = "mcp-stt"
     mcp_tts_service: str = "mcp-tts"
     mcp_rag_service: str = "mcp-rag"
@@ -45,7 +58,7 @@ class Settings(BaseSettings):
         return origins or ["*"]
     
     class Config:
-        env_file = ".env"
+        env_file = str(Path(__file__).resolve().parent.parent / ".env")
         case_sensitive = False
         env_file_encoding = 'utf-8'
         
@@ -67,6 +80,14 @@ class Settings(BaseSettings):
             self.llm_provider = self.llm_provider.strip()
         if self.gemini_model:
             self.gemini_model = self.gemini_model.strip()
+        if self.grokipedia_api_key:
+            self.grokipedia_api_key = self.grokipedia_api_key.strip()
+        if self.grokipedia_api_base_url:
+            self.grokipedia_api_base_url = self.grokipedia_api_base_url.strip()
+        if self.alpha_vantage_api_key:
+            self.alpha_vantage_api_key = self.alpha_vantage_api_key.strip()
+        if self.polymarket_api_key:
+            self.polymarket_api_key = self.polymarket_api_key.strip()
         if self.product_catalog_url:
             self.product_catalog_url = self.product_catalog_url.strip()
         if self.product_media_base_url:

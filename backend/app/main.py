@@ -17,9 +17,12 @@ from app.services.llm import llm_service
 from app.services.tool_executor import tool_executor
 from app.services.stt_fallback import transcribe_with_openai
 from app.services.tts_fallback import synthesize_with_elevenlabs
+from app.services.tts_fallback_gtts import synthesize_with_gtts
 from app.services.api_key_manager import api_key_manager
 from app.tools.product_search import search_products, add_to_cart
 from app.tools.grokipedia import grokipedia_search
+from app.tools.alpha_vantage import alpha_vantage_market_data
+from app.tools.polymarket import polymarket_market_data
 from app.tools.schemas import TOOLS_SCHEMA
 
 # Configure logging
@@ -55,6 +58,8 @@ handler = Mangum(app)
 tool_executor.register_tool("search_products", search_products)
 tool_executor.register_tool("add_to_cart", add_to_cart)
 tool_executor.register_tool("grokipedia_search", grokipedia_search)
+tool_executor.register_tool("alpha_vantage_market_data", alpha_vantage_market_data)
+tool_executor.register_tool("polymarket_market_data", polymarket_market_data)
 
 
 @app.get("/")
@@ -118,26 +123,30 @@ async def transcribe_audio(audio_file: UploadFile = File(...)):
         # Try MCP-STT first, fallback to OpenAI Whisper if MCP not available
         transcript = None
         mcp_error = None
+        use_mcp = getattr(settings, "enable_mcp_stt", False)
         
-        # Try MCP-STT service
-        try:
-            file_url = f"file://{tmp_path}"
-            logger.info(f"Calling MCP-STT for transcription")
-            result = execute_mcp_command(
-                service=settings.mcp_stt_service,
-                action="transcribe",
-                file_url=file_url
-            )
-            
-            if "error" not in result:
-                transcript = result.get("text", result.get("transcript", ""))
-                if transcript:
-                    logger.info("Transcription successful via MCP-STT")
-        except Exception as e:
-            mcp_error = str(e)
-            logger.warning(f"MCP-STT failed: {mcp_error}")
+        # Try MCP-STT service if enabled
+        if use_mcp:
+            try:
+                file_url = f"file://{tmp_path}"
+                logger.info("Calling MCP-STT for transcription")
+                result = execute_mcp_command(
+                    service=settings.mcp_stt_service,
+                    action="transcribe",
+                    file_url=file_url
+                )
+                
+                if "error" not in result:
+                    transcript = result.get("text", result.get("transcript", ""))
+                    if transcript:
+                        logger.info("Transcription successful via MCP-STT")
+            except Exception as e:
+                mcp_error = str(e)
+                logger.warning(f"MCP-STT failed: {mcp_error}")
+        else:
+            mcp_error = "MCP STT disabled"
         
-        # Use OpenAI Whisper (primary method, MCP is optional)
+        # Use OpenAI Whisper when MCP disabled or unavailable
         if not transcript:
             logger.info("Using OpenAI Whisper for transcription")
             
@@ -147,7 +156,7 @@ async def transcribe_audio(audio_file: UploadFile = File(...)):
             except Exception as e:
                 logger.error(f"Whisper transcription failed: {e}")
                 raise HTTPException(
-                    500, 
+                    500,
                     f"Transcription failed: {str(e)}. "
                     f"Please check your OPENAI_API_KEY is valid and has access to Whisper API."
                 )
@@ -208,25 +217,66 @@ async def synthesize_speech(request: TTSRequest):
             mcp_error = str(e)
             logger.warning(f"MCP-TTS failed: {mcp_error}")
         
-        # Fallback to Eleven Labs if MCP failed or not available
-        if not audio_data_bytes:
+        # Configure fallback order
+        prefer_gtts = getattr(settings, "tts_prefer_gtts", True)
+        eleven_error = None
+        gtts_error = None
+
+        def try_gtts():
+            nonlocal audio_data_bytes, gtts_error
+            if audio_data_bytes:
+                return
+            try:
+                audio_data_bytes = synthesize_with_gtts(request.text)
+                logger.info("Speech synthesis successful via gTTS fallback")
+            except Exception as exc:
+                gtts_error = str(exc)
+                logger.warning("gTTS fallback failed: %s", exc)
+
+        def try_eleven_labs():
+            nonlocal audio_data_bytes, eleven_error
+            if audio_data_bytes:
+                return
+            if not getattr(settings, "enable_eleven_labs", False):
+                eleven_error = "Eleven Labs disabled"
+                return
+            if not settings.eleven_labs_api_key:
+                eleven_error = "ELEVEN_LABS_API_KEY not configured"
+                return
             if "manus-mcp-cli not found" in str(mcp_error) or "manus-mcp-cli not found" in str(result.get("error", "")):
                 logger.info("MCP not available, using Eleven Labs fallback")
             else:
-                logger.info("MCP-TTS failed, falling back to Eleven Labs")
-            
+                logger.info("MCP-TTS failed, trying Eleven Labs fallback")
             try:
                 voice_id = request.voice_id or settings.eleven_labs_voice_id
                 audio_data_bytes = synthesize_with_elevenlabs(request.text, voice_id)
-            except Exception as e:
-                logger.error(f"Fallback synthesis also failed: {e}")
-                raise HTTPException(
-                    500, 
-                    f"Speech synthesis failed. MCP error: {mcp_error or 'N/A'}. "
-                    f"Fallback error: {str(e)}. "
-                    f"Note: TTS requires either MCP or ELEVEN_LABS_API_KEY."
-                )
-        
+                logger.info("Speech synthesis successful via Eleven Labs fallback")
+            except Exception as exc:
+                eleven_error = str(exc)
+                logger.warning("Eleven Labs fallback failed: %s", exc)
+
+        if prefer_gtts:
+            try_gtts()
+            try_eleven_labs()
+        else:
+            try_eleven_labs()
+            try_gtts()
+
+        if not audio_data_bytes:
+            if getattr(settings, "enable_eleven_labs", False) and settings.eleven_labs_api_key:
+                eleven_status = eleven_error or "N/A"
+            else:
+                eleven_status = eleven_error or "Not attempted"
+            gtts_status = gtts_error or "N/A"
+            raise HTTPException(
+                500,
+                "Speech synthesis failed. "
+                f"MCP error: {mcp_error or result.get('error') or 'N/A'}. "
+                f"Eleven Labs error: {eleven_status}. "
+                f"gTTS error: {gtts_status}. "
+                "Note: configure MCP or ensure outbound network access for gTTS."
+            )
+
         # Convert bytes to base64 for response
         import base64
         audio_data_base64 = base64.b64encode(audio_data_bytes).decode('utf-8')
@@ -330,7 +380,8 @@ async def chat(request: ChatRequest):
             text=result["text"],
             conversation_id=request.conversation_id,
             tools_used=result.get("tools_used", []),
-            products=result.get("products")
+            products=result.get("products"),
+            tool_outputs=result.get("tool_outputs")
         )
         
     except Exception as e:

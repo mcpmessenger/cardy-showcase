@@ -23,9 +23,20 @@ class LLMService:
         self._client: Optional[OpenAI] = None
         self._gemini_model = None
         self.model = settings.llm_model
-        self.system_prompt = """You are tubbyAI, a voice assistant for a smart store. 
-Search products, add to cart, answer questions. Keep responses brief and natural for spoken conversation. 
-Include product images when showing results."""
+        self.system_prompt = (
+            "You are tubbyAI, a voice assistant for a smart store with access to helper tools. "
+            "Use the available functions whenever they help: search the product catalog for retail questions, "
+            "query Alpha Vantage for up-to-date stock quotes or intraday data when a user asks about tickers, "
+            "consult Polymarket data for prediction market odds, and call Grokipedia for general knowledge "
+            "research. Keep responses brief and natural for spoken conversation. Mention sources when possible "
+            "and include product images when showing shopping results."
+        )
+        # Conversation management
+        # GPT-4 has 8192 token limit. Reserve ~2500 for system prompt + tools, leaving ~5500 for messages
+        # Be conservative to account for token estimation inaccuracy
+        self.max_history_messages = 6  # keep last N messages (including tool messages)
+        self.max_message_tokens = 5000  # target max tokens for all messages (excluding system + tools) - conservative
+        self.max_tool_response_chars = 1500  # truncate tool responses more aggressively
 
         if self.provider == "gemini":
             if genai is None:
@@ -49,10 +60,11 @@ Include product images when showing results."""
 
             # Ensure system prompt is applied via instructions
             self.system_prompt = (
-                "You are tubbyAI, a voice assistant for a smart store. "
-                "You can chat about products and general topics. If you cannot perform "
-                "an action (like searching inventory), apologize briefly and offer to provide "
-                "helpful information instead. Keep responses concise and natural for spoken conversation."
+                "You are tubbyAI, a voice assistant for a smart store with access to helper tools. "
+                "Use the available functions whenever they help: product search for retail queries, "
+                "Alpha Vantage for stock data, Polymarket for prediction odds, and Grokipedia for general knowledge. "
+                "If you cannot perform an action, apologize briefly and offer alternative help. "
+                "Keep responses concise and natural for spoken conversation."
             )
         else:
             self.provider = "openai"
@@ -109,6 +121,28 @@ Include product images when showing results."""
                 "usage": response.usage,
             }
         except Exception as e:
+            error_str = str(e)
+            # Check if it's a context length error
+            if "context_length" in error_str.lower() or "maximum context length" in error_str.lower():
+                logger.warning(f"Context length exceeded. Attempting to trim messages more aggressively.")
+                # Try with just the last few messages
+                if len(payload["messages"]) > 3:  # system + at least 2 user/assistant messages
+                    # Keep system prompt and last 2-3 messages only
+                    trimmed_payload = payload.copy()
+                    trimmed_payload["messages"] = [
+                        payload["messages"][0],  # system prompt
+                        *payload["messages"][-3:]  # last 3 messages
+                    ]
+                    try:
+                        response = self.client.chat.completions.create(**trimmed_payload)
+                        logger.info("Successfully retried with aggressively trimmed context")
+                        return {
+                            "message": response.choices[0].message,
+                            "usage": response.usage,
+                        }
+                    except Exception as retry_e:
+                        logger.error(f"Retry with trimmed context also failed: {retry_e}")
+                        raise
             logger.error(f"LLM API error: {e}")
             raise
     
@@ -134,12 +168,18 @@ Include product images when showing results."""
         if self.provider == "gemini":
             return self._process_with_tools_gemini(user_message, conversation_history)
 
+        history = self._prepare_history(conversation_history)
         messages = [
-            *conversation_history,
+            *history,
             {"role": "user", "content": user_message}
         ]
+        # Apply context limits before first call (tools present, so reserve space)
+        messages = self._enforce_context_limits(messages, tools_present=bool(tools))
         
+        tool_outputs: Dict[str, Any] = {}
+
         # First LLM call (with tools)
+        # Note: tools schema adds significant tokens, so be extra conservative
         response = self.chat_completion(messages, tools=tools)
         response_message = response["message"]
         
@@ -180,32 +220,44 @@ Include product images when showing results."""
                 # Execute tool
                 tool_result = tool_executor.execute(function_name, function_args)
                 tools_used.append(function_name)
+                tool_outputs[function_name] = tool_result
                 
                 # Capture product search results
                 if function_name == "search_products" and isinstance(tool_result, list):
                     products_found = tool_result
                 
-                # Add tool result to messages
+                # Add tool result to messages (truncate if too large)
+                tool_content = json.dumps(tool_result) if not isinstance(tool_result, str) else tool_result
+                original_length = len(tool_content)
+                if original_length > self.max_tool_response_chars:
+                    tool_content = tool_content[:self.max_tool_response_chars] + f"\n... (truncated, original length: {original_length} chars)"
+                    logger.debug(f"Truncated tool response for {function_name} from {original_length} to {self.max_tool_response_chars} chars")
+                
                 messages.append({
                     "role": "tool",
                     "tool_call_id": tool_call.id,
                     "name": function_name,
-                    "content": json.dumps(tool_result) if not isinstance(tool_result, str) else tool_result
+                    "content": tool_content
                 })
             
             # Second LLM call (with tool results)
-            final_response = self.chat_completion(messages)
+            # No tools in second call (just messages), but tool responses are large
+            constrained_messages = self._enforce_context_limits(messages, tools_present=False)
+            final_response = self.chat_completion(constrained_messages)
             return {
                 "text": final_response["message"].content,
                 "tools_used": tools_used,
-                "products": products_found if products_found else None
+                "products": products_found if products_found else None,
+                "tool_outputs": tool_outputs or None,
             }
         
         # No tools called, return direct response
+        # No need to constrain again since we already did before the first call
         return {
             "text": response_message.content,
             "tools_used": [],
-            "products": None
+            "products": None,
+            "tool_outputs": None,
         }
 
     # Gemini -----------------------------------------------------------------
@@ -270,6 +322,151 @@ Include product images when showing results."""
             return "\n".join(text.strip() for text in texts if text.strip())
 
         return "I'm sorry, but I couldn't generate a response right now."
+
+    # ------------------------------------------------------------------ helpers
+    def _prepare_history(self, history: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Trim conversation history to stay within configured limits.
+
+        Args:
+            history: Original conversation history (list of message dicts).
+
+        Returns:
+            Trimmed copy of the history.
+        """
+        if not history:
+            return []
+
+        # Keep only the most recent messages
+        trimmed = history[-self.max_history_messages :]
+        
+        # Estimate tokens and trim if needed
+        trimmed = self._trim_to_token_limit(trimmed, self.max_message_tokens)
+        
+        if len(trimmed) < len(history):
+            logger.info(
+                "Trimmed conversation history from %s to %s messages to stay within context window.",
+                len(history),
+                len(trimmed),
+            )
+
+        return trimmed
+
+    def _enforce_context_limits(self, messages: List[Dict[str, Any]], tools_present: bool = False) -> List[Dict[str, Any]]:
+        """
+        Apply context limits to the message list before an LLM call.
+        Truncates tool responses and keeps only recent messages.
+        
+        Args:
+            messages: List of messages to trim
+            tools_present: If True, reserve more space for tools schema (which can be 1000-2000 tokens)
+        """
+        if not messages:
+            return messages
+
+        # Truncate large tool responses first
+        messages = self._truncate_tool_responses(messages)
+        
+        # Keep only recent messages
+        trimmed = messages[-self.max_history_messages :]
+        
+        # Adjust token limit based on whether tools are present
+        # Tools schema can be 1000-2000 tokens, so be more conservative
+        effective_limit = self.max_message_tokens - (1500 if tools_present else 0)
+        effective_limit = max(effective_limit, 2000)  # Never go below 2000 tokens
+        
+        # Trim to token limit (more aggressive)
+        trimmed = self._trim_to_token_limit(trimmed, effective_limit)
+
+        if not trimmed:
+            # Fallback: keep the most recent message to avoid empty payload
+            return messages[-1:] if messages else []
+
+        if len(trimmed) < len(messages):
+            logger.info(
+                "Trimmed messages from %s to %s to stay within token limit (limit: %s tokens, tools: %s).",
+                len(messages),
+                len(trimmed),
+                effective_limit,
+                tools_present,
+            )
+
+        return trimmed
+
+    def _truncate_tool_responses(self, messages: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Truncate tool response content to avoid bloating context."""
+        result = []
+        for msg in messages:
+            if msg.get("role") == "tool" and msg.get("content"):
+                content = msg["content"]
+                if isinstance(content, str) and len(content) > self.max_tool_response_chars:
+                    # Truncate and add indicator
+                    truncated = content[:self.max_tool_response_chars]
+                    msg = msg.copy()
+                    msg["content"] = truncated + f"\n... (truncated, original length: {len(content)} chars)"
+                    logger.debug(f"Truncated tool response from {len(content)} to {self.max_tool_response_chars} chars")
+            result.append(msg)
+        return result
+
+    def _trim_to_token_limit(self, messages: List[Dict[str, Any]], max_tokens: int) -> List[Dict[str, Any]]:
+        """Trim messages to stay within token limit, keeping the most recent."""
+        if not messages:
+            return messages
+        
+        # Estimate tokens for each message (rough: 1 token ≈ 4 chars for English, but JSON is more)
+        total_tokens = 0
+        trimmed = []
+        
+        # Work backwards from the end to keep most recent messages
+        for msg in reversed(messages):
+            msg_tokens = self._estimate_tokens(msg)
+            if total_tokens + msg_tokens > max_tokens:
+                break
+            trimmed.insert(0, msg)
+            total_tokens += msg_tokens
+        
+        return trimmed
+
+    @staticmethod
+    def _estimate_tokens(message: Dict[str, Any]) -> int:
+        """
+        Estimate token count for a message.
+        Conservative approximation: 1 token ≈ 3 chars for safety (accounts for JSON/structured data).
+        """
+        if not message:
+            return 0
+        
+        # Get content
+        content = message.get("content", "")
+        if isinstance(content, list):
+            content = " ".join(
+                part.get("text", "") if isinstance(part, dict) else str(part)
+                for part in content
+            )
+        elif not isinstance(content, str):
+            content = str(content)
+        
+        if not content:
+            # Tool calls without content still have overhead
+            if message.get("tool_calls"):
+                return 50  # Estimate for tool call structure
+            return 5  # Minimal overhead
+        
+        # Conservative token estimate: ~3 chars per token (accounts for JSON being more token-dense)
+        base_tokens = len(content) // 3
+        
+        # Adjust for JSON/structure (tool responses, function calls)
+        if message.get("role") == "tool":
+            # Tool responses (JSON) are very token-heavy
+            base_tokens = int(base_tokens * 1.5)
+        elif message.get("tool_calls"):
+            # Tool call definitions
+            base_tokens = int(base_tokens * 1.2)
+        
+        # Add overhead for message structure (role, name, tool_call_id, etc.)
+        overhead = 15 if message.get("tool_calls") or message.get("role") == "tool" else 10
+        
+        return base_tokens + overhead
 
 
 # Singleton instance - lazy initialization

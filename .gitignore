@@ -35,3 +35,7 @@ public/product_media/**/*.webp
 # Environment files
 .env
 backend/.env
+backend/.env.local
+backend/.env.prod
+backend/.env.dev
+backend/lambda-env.json
