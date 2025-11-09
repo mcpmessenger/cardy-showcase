@@ -33,7 +33,7 @@ class Settings(BaseSettings):
     polymarket_api_key: str = ""
     alpha_vantage_timeout: int = 20
     polymarket_timeout: int = 20
-    tts_prefer_gtts: bool = False
+    tts_prefer_gtts: bool = True
     enable_mcp_stt: bool = False
     
     # MCP Configuration (used for STT/TTS fallbacks)

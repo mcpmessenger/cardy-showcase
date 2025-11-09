@@ -20,6 +20,7 @@ class ChatResponse(BaseModel):
     conversation_id: Optional[str] = None
     tools_used: Optional[List[str]] = None
     products: Optional[List[dict]] = None  # Product data when products are found
+    tool_outputs: Optional[dict] = None
 
 
 class ProductSearchResponse(BaseModel):
